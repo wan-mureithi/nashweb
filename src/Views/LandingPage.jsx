@@ -1,205 +1,239 @@
 import React, { Component } from "react";
 import Menubar from "../Components/LandingPages/Menubar";
-import SwipeableViews from "react-swipeable-views";
-import { autoPlay } from "react-swipeable-views-utils";
-import { useTheme } from "@material-ui/core/styles";
 import LandingPageFooter from "../Components/LandingPages/Footer";
-import { Grid,Paper } from "@material-ui/core";
-import { createMuiTheme } from "@material-ui/core";
+import { Grid, Paper } from "@material-ui/core";
+import { createMuiTheme, Hidden } from "@material-ui/core";
 import { MuiThemeProvider } from "@material-ui/core/styles";
 import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import Benefits from "../Components/LandingPages/Benefits";
 import Features from "../Components/LandingPages/Features";
 import SignUp from "../Components/Signup";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import EmailIcon from '@material-ui/icons/Email';
+import { animateScroll as scroll } from "react-scroll";
+
 
 const papertheme2 = createMuiTheme({
-    overrides: {
-      MuiPaper: {
-        root: {
-          minHeight: "225px",
-          width: "240px",
-          border: " 0.274523px solid #E3E3E3",
-          background: "#FFFFFF",
-          padding: "25px",
-          marginBottom: "20px",
-          textAlign: "center",
-        },
-        rounded: {
-          borderRadius: "18.3016px",
-        },
-        elevation1: {
-          boxShadow: "0px 13.7262px 22.8769px rgba(0, 0, 0, 0.1)",
-        },
+  overrides: {
+    MuiPaper: {
+      root: {
+        minHeight: "225px",
+        width: "240px",
+        border: " 0.274523px solid #E3E3E3",
+        background: "#FFFFFF",
+        padding: "25px",
+        marginBottom: "20px",
+        textAlign: "center",
+      },
+      rounded: {
+        borderRadius: "18.3016px",
+      },
+      elevation1: {
+        boxShadow: "0px 13.7262px 22.8769px rgba(0, 0, 0, 0.1)",
       },
     },
-  });
-const AutoPlaySwipeableViews = autoPlay(SwipeableViews);
+  },
+});
+
 class LandingPage extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isChecked: false,
+      validEmail: false,
+    };
+  }
+  componentDidMount() {
+    this.setState({ isChecked: true });
+    AOS.init({
+      duration: 2000,
+    });
+  }
+  scrollToBottom = () => {
+    scroll.scrollToBottom();
+};
   render() {
-    const theme = useTheme;
     return (
-      <div>
+      <div style={{ overflow: "hidden" }}>
         <Menubar />
-        <div
-          className="BuySell">
-          <div className="BuySellCar">
-          <div className="spiralBg"></div>
-            <div className="BuySellDiv">
-              <span className="landingHeader">
-                The corporate card for
-                <AutoPlaySwipeableViews
-                  slideStyle={{ overflow: "hidden" }}
-                  axis={theme.direction === "rtl" ? "x-reverse" : "x"}
-                >
-                  <span className="headerTransition"> Global businesses </span>
+      
+      
+        <div id="header-container" className="header-container">
+        <div style={{maxWidth:"1300px",margin:'auto'}}>
+        {/* <div  className="spiralBg"></div> */}
+          <Grid container spacing={2}>
+          <Grid  item xs={12} sm={12} md={12} lg={6}>
+          
+          <div className="titleTexts">
+              <span  className="landingHeader">
+                The <b>Corporate card </b> for
+              </span>
+              <div className="helvetica-animate-wrapper">
+                <div className="helvetica-animate-words helvetica-words helvetica-words-2">
+                  <span  className="headerTransition"> Global businesses </span>
                   <span className="headerTransition"> Start ups </span>
                   <span className="headerTransition"> Growing businesses </span>
-                </AutoPlaySwipeableViews>
-                in Africa
-              </span>
-              <span className="LandingPageSubHeader">
+                </div>
+              </div>
+
+              <span className="landingHeaderx">in Africa</span>
+
+              <span
+                style={{ position: "relative", top: "90px",fontSize: "16px",
+                lineHeight: "35px"}}
+                className="LandingPageSubHeader"
+              >
                 Get unlimited virtual & physical cards with inbuilt approval
                 controls for all your expense management and payment flows.{" "}
               </span>
-              <div className="getStartedInput">
-                <img
-                  style={{ height: "20px" }}
-                  src="/assets/icons/email.svg"
-                  alt=""
-                />
+              <div
+                style={{ position: "relative", top: "110px" }}
+                className="getStartedInput"
+              >
+                
+                <EmailIcon fontSize="large" style={{ color:'#2282E2',position:'relative',left:'15px' }} />
                 <input type="text" placeholder="Enter your work email" />
-                <button className="started">Get Nash - for free</button>
+
+                <button style={{ width: "170px" }} className="started">
+                  Get Nash - for free
+                </button>
               </div>
-              
             </div>
-            <div className="cardsImg">
-              <img src="/assets/img/cards-rot8.png" alt="" />
+            
+          </Grid>
+          <Grid  style={{ paddingTop: "100px" }} item xs={12} sm={12} md={12} lg={6}>
+          <img style={{ height:'800px',mixBlendMode:'color-burn',position:'absolute',top:'-35px',left:'419px',zIndex:'-2' }}  src="/assets/img/diagonalHero4.png" alt="" />
+          <div className="cardsImg1">
+              <img src="/assets/img/cards2.png" alt="" />
             </div>
+          </Grid>
+          </Grid>
           </div>
+          
+          {/* <div className="cardsBg">
+            
+            
+          </div> */}
         </div>
+       
         <div className="Investors">
-          <Grid
-            container
-            spacing={2}
-          >
-            <Grid item xs={6} sm={6} md={6} lg={3}>
-              <div className="arrowdown">
+          <Grid container spacing={2}>
+            <Grid item container xs={12} sm={12} md={6} lg={6}>
+             <Grid item  xs={12} sm={6} md={6} lg={6}>
+             <div onClick={this.scrollToBottom} className="arrowdown">
                 <ArrowDownwardIcon
+                  className="arrowDownBtn"
                   style={{
                     color: "#2282E2",
-                    marginTop: "77px",
-                    fontSize: "130px",
-                    marginLeft: "70px",
+                    marginTop: "110px",
+                    fontSize: "80px",
+                    marginLeft: "50px",
+                    float:'right',
+                    cursor:'pointer'
                   }}
                 />
               </div>
-            </Grid>
-            <Grid item xs={6} sm={6} md={6} lg={2}>
-              <div className="supportText">
-                <span className="greyText">
+             </Grid>
+             <Grid item  xs={12} sm={6} md={6} lg={6}>
+             <div className="supportText">
+                <span style={{fontSize: "16px",lineHeight: "36px",color: "#ABABAB"}} >
                   Supported by some of the best global investors
                 </span>
               </div>
+</Grid>
+              
+              
+              
+              
+              
+            </Grid>
+            <Grid item xs={12} sm={12} md={6} lg={6}>
+              <img className="investImg" style={{ height:"110px", marginTop:'100px',marginLeft:'-15vh'}} src="/assets/img/investors.png" alt="" />
             </Grid>
 
-            <Grid item xs={6} sm={6} md={6} lg={2}>
-              <div>
-                <div className="investorimg">
-                  <img
-                    style={{ height: "80px" }}
-                    src="/assets/img/villageGlobal.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </Grid>
-            <Grid item xs={6} sm={6} md={6} lg={2}>
-              <div>
-                <div className="investorimg">
-                  <img
-                    style={{ height: "64px" }}
-                    src="/assets/img/norrs.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </Grid>
-            <Grid item xs={6} sm={6} md={6} lg={2}>
-              <div>
-                <div className="investorimg">
-                  <img
-                    style={{ height: "80px" }}
-                    src="/assets/img/mushaVentures.png"
-                    alt=""
-                  />
-                </div>
-              </div>
-            </Grid>
+           
+            
           </Grid>
         </div>
+        <div >
         <div name="platformDiv" id="platformDiv" className="platformDiv">
-          <div className="globeImg">
-            <img src="/assets/img/globemap.png" alt="" />
+          <Grid style={{maxWidth:'1300px', margin:'auto'}} container spacing={2}>
+            <Grid item xs={12} md={8}>
+            <div>
+            <img className="globeImg" src="/assets/img/globemap.png" alt="" />
           </div>
-          <div className="platformText">
-            <div className="bluetitle">
-              <span>ALL IN ONE PLATFORM</span>
+            </Grid>
+            <Grid item xs={12} md={4}>
+            {/* <div className="platformText"> */}
+            <div style={{ width:'178px' }} className="bluetitle">
+              <span style={{ marginLeft:'5px' }}>ALL IN ONE PLATFORM</span>
             </div>
-            <div style={{ width: "446px" }} className="blacktitle2">
+            <div style={{ fontSize: "38px" }} className="blacktitle2">
               <span>
                 The Corporate Card Built for Your Growth. Africa to the World!
               </span>
             </div>
             <div className="benefitsList">
               <div className="panelItem">
-                <CheckCircleIcon style={{ color: "#3297F4" }} />
-                <div style={{ paddingLeft: "14px" }}>
+                <CheckCircleIcon style={{ color: "#3297F4",fontSize:'21px' }} />
+                <div style={{ paddingLeft: "11px" }}>
                   <span>Spend management</span>
                 </div>
               </div>
               <div className="panelItem">
-                <CheckCircleIcon style={{ color: "#3297F4" }} />
-                <div style={{ paddingLeft: "14px" }}>
+                <CheckCircleIcon style={{ color: "#3297F4",fontSize:'21px' }} />
+                <div style={{ paddingLeft: "11px" }}>
                   <span>Payment flows management</span>
                 </div>
               </div>
               <div className="panelItem">
-                <CheckCircleIcon style={{ color: "#3297F4" }} />
-                <div style={{ paddingLeft: "14px" }}>
+                <CheckCircleIcon style={{ color: "#3297F4",fontSize:'21px' }} />
+                <div style={{ paddingLeft: "11px" }}>
                   <span>Controls & approvals</span>
                 </div>
               </div>
             </div>
             <div style={{ display: "block" }}>
               <span
-                style={{ color: "#6F6F6F", width: "400px" }}
-                className="greyText"
-              >
+                style={{fontSize: "13px",lineHeight: "19px",color: "#6F6F6F",width:"403px" }}>
                 For your growing team with local and international operations,
                 manage all expenses, all controls & approvals, all payments to
                 all payment rails (banks, cards, mobile money) from a single
                 platform and card.
               </span>
               <button
-                style={{ display: "block", marginTop: "25px" }}
+                style={{ display: "block", height:'49px', marginTop: "25px", width: "164px" }}
                 className="SignUpFormsSubmit"
               >
                 Get Nash
               </button>
             </div>
-          </div>
+         
+            </Grid>
+          </Grid>
+          
+          
+        </div>
         </div>
         <Benefits />
         <Features />
         <div className="howWework">
-          <div style={{ margin: "0 auto", paddingBottom: "40px" }}>
+          <div style={{ width:'1300px', margin:'auto'}}>
+          <div style={{ marginLeft: "-125px", paddingBottom: "40px" }}>
             <span className="whiteTitle">How does Nash work?</span>
           </div>
+          <Hidden only={["sm", "xs", "md"]}>
+            <div style={{ marginLeft: "55px" }}>
+              <img
+                style={{ height: "95px" }}
+                src="/assets/icons/steps.png"
+                alt=""
+              />
+            </div>{" "}
+          </Hidden>
 
-          {/* <div className="textArt">
-           
-          </div> */}
           <MuiThemeProvider theme={papertheme2}>
             <Grid
               style={{ justifyContent: "center", marginTop: "40px" }}
@@ -207,28 +241,34 @@ class LandingPage extends Component {
               spacing={2}
             >
               <Grid xs={12} sm={6} md={6} lg={4}>
-              <div style={{margin:'0 100px'}}className="whiteBg">
-              <div className="blueBg">
-                <span className="number">01</span>
-              </div>
-            </div>
-                <Paper style={{marginTop:'20px'}}>
-                  <h3>Join Nash </h3>
+                <div>
+                  <Hidden only={["lg", "xl"]}>
+                    <div style={{ margin: "0 100px" }} className="whiteBg">
+                      <div className="blueBg">
+                        <span className="number">01</span>
+                      </div>
+                    </div>
+                  </Hidden>
+                </div>
+                <Paper style={{ marginTop: "25px" }}>
+                  <h3 className="paperTitle">Join <br/> Nash </h3>
 
-                  <p className="greyText">
+                  <p style={{ fontSize: "14px" }} className="greyText">
                     Sign up for the Nash Corporate Card. We will contact you
                     shortly.
                   </p>
                 </Paper>
               </Grid>
               <Grid xs={12} sm={6} md={6} lg={4}>
-              <div style={{margin:'0 100px'}} className="whiteBg">
-              <div className="blueBg">
-                <span className="number">02</span>
-              </div>
-            </div>
-                <Paper  style={{marginTop:'20px'}}>
-                  <h3>Receive your card </h3>
+                <Hidden only={["lg", "xl"]}>
+                  <div style={{ margin: "0 100px" }} className="whiteBg">
+                    <div className="blueBg">
+                      <span className="number">02</span>
+                    </div>
+                  </div>
+                </Hidden>
+                <Paper style={{ marginTop: "20px" }}>
+                  <h3 className="paperTitle">Receive <br/> your card </h3>
 
                   <p className="greyText">
                     We’ll approve you and you’ll soon be able to access
@@ -238,13 +278,15 @@ class LandingPage extends Component {
                 </Paper>
               </Grid>
               <Grid xs={12} sm={6} md={6} lg={4}>
-              <div style={{margin:'0 100px'}} className="whiteBg">
-              <div className="blueBg">
-                <span className="number">03</span>
-              </div>
-            </div>
-                <Paper style={{marginTop:'20px'}}>
-                  <h3>Enjoy the power of Nash</h3>
+                <Hidden only={["lg", "xl"]}>
+                  <div style={{ margin: "0 100px" }} className="whiteBg">
+                    <div className="blueBg">
+                      <span className="number">03</span>
+                    </div>
+                  </div>
+                </Hidden>
+                <Paper style={{ marginTop: "20px" }}>
+                  <h3 className="paperTitle">Enjoy the power of Nash</h3>
 
                   <p className="greyText">
                     Enjoy the power of Nash Manage your expenses and, payment
@@ -255,29 +297,33 @@ class LandingPage extends Component {
               </Grid>
             </Grid>
           </MuiThemeProvider>
+          </div>
+          
         </div>
-        <div className="cardReady">
-          <div className="cardReady-content">
-            <div className="left">
+        <div  className="cardReady">
+          <div style={{ width:'1300px', margin:'auto'}} className="cardReady-content">
+            <Grid container spacing={2} >
+              <Grid item  xs={12} md={6} lg={6}>
               <img
-                style={{ height: "280px", marginTop: "-105px" }}
+                className="cardsStr8"
+                style={{ height: "415px", marginTop: "-186px" }}
                 src="/assets/img/cards-str8.png"
                 alt=""
               />
               <div className="cardReadytexts">
-                <div className="bluetitle">
-                  <span>SIGN UP</span>
+                <div style={{ width: "85px" }} className="bluetitle">
+                  <span style={{ marginLeft: "8px" }}>SIGN UP</span>
                 </div>
                 <div className="blacktitle2">
-                  <span>Get your Nash corporate card ready</span>
+                  <span style={{ marginBottom: "35px",fontWeight:"800" }} >Get Your Nash <br /> Corporate Card Ready</span>
                 </div>
                 <div className="smallerTexts">
                   <span
                     style={{
                       fontWeight: "600",
-                      lineHeight: "30px",
-                      fontSize: "15px",
-                      marginBottom: "20px",
+                     
+                      fontSize: "18px",
+                     
                     }}
                   >
                     {" "}
@@ -287,21 +333,26 @@ class LandingPage extends Component {
                   <span
                     style={{
                       display: "block",
-                      lineHeight: "30px",
-                      fontSize: "13px",
+                      marginTop: "35px",
+                      fontSize: "16px",
                     }}
                   >
                     Operate locally and internationally with the power of Nash
                   </span>
                 </div>
               </div>
-            </div>
-            <div className="right">
+              </Grid>
+              <Grid item xs={12} md={6} lg={6}>
               <SignUp />
-            </div>
+              </Grid>
+
+            </Grid>
+            
+            
           </div>
         </div>
         <LandingPageFooter />
+        
       </div>
     );
   }

@@ -5,7 +5,7 @@ import { MuiThemeProvider } from "@material-ui/core/styles";
 import SwipeableViews from "react-swipeable-views";
 import Tabs from "@material-ui/core/Tabs";
 import Tab from "@material-ui/core/Tab";
-import MediaQuery from 'react-responsive'
+import MediaQuery from "react-responsive";
 
 const CustomTab = withStyles({
   root: {
@@ -14,7 +14,8 @@ const CustomTab = withStyles({
     marginTop: "-26px",
     margin: "0 auto",
     width: "48%",
-    textTransform: "none"
+    textTransform: "none",
+    height: "73px",
   },
   wrapper: {
     position: "absolute",
@@ -26,8 +27,8 @@ const MobileTab = withStyles({
     background: "#0079e9",
     borderRadius: "16.4839px",
     marginTop: "-26px",
-    marginLeft:"-45px",
-    width: "404px",
+    marginLeft: "-4px",
+    width: "350px",
     textTransform: "none",
   },
   wrapper: {
@@ -58,15 +59,20 @@ const tabtheme = createMuiTheme({
         backgroundColor: "white",
       },
       root: {
-        height: "38px",
+        height: "48px",
         marginBottom: "5px",
-        marginLeft: "5px",
-        borderRadius: "10px",
+        borderRadius: "11px",
+        bottom: "8px",
+        // marginLeft:'-7px',
+        // paddingLeft: "5px",
+        width: "165px",
       },
     },
     MuiTabs: {
       flexContainer: {
         justifyContent: "space-around",
+        height: "70px",
+        marginLeft: "-14px",
       },
     },
   },
@@ -75,9 +81,9 @@ const mobiletabtheme = createMuiTheme({
   overrides: {
     MuiTab: {
       root: {
-        minWidth:'85px',
-        fontSize:'13px',
-        lineHeight:'1.4',
+        minWidth: "85px",
+        fontSize: "13px",
+        lineHeight: "1.4",
         textTransform: "none",
       },
       wrapper: {
@@ -97,7 +103,7 @@ const mobiletabtheme = createMuiTheme({
       },
       root: {
         height: "38px",
-        width:"95px",
+        width: "95px",
         marginBottom: "5px",
         //marginLeft: "5px",
         borderRadius: "10px",
@@ -114,8 +120,8 @@ const papertheme = createMuiTheme({
   overrides: {
     MuiPaper: {
       root: {
-        minHeight: "245px",
-        width: "260px",
+        minHeight: "228px",
+        width: "280px",
         border: " 0.274523px solid #E3E3E3",
         background: "#FFFFFF",
         padding: "11px 20px",
@@ -200,7 +206,7 @@ class Features extends Component {
             " An accounting experience co-created with finance teams to automate manual processes and let Nash do the heavy lifting.",
         },
         {
-          img: "/assets/icons/auto.svg",
+          img: "/assets/icons/receipt.svg",
           title: "Automatic Receipt Matching",
           paragrph:
             "Codify your expense policies in Nash. Nash automatically requests, collects and matches receipts sent via SMS & email.",
@@ -225,64 +231,108 @@ class Features extends Component {
   };
   render() {
     return (
-      <div className="controlMoney">
+      <div id="controlMoney" className="controlMoney">
         <div className="gridRotated"></div>
-        <section>
+        <section style={{ maxWidth: "1390px", margin: "auto" }}>
           <MediaQuery minWidth={740}>
-          <MuiThemeProvider theme={tabtheme}>
-            <CustomTab value={this.state.index} onChange={this.handleChange}>
-              <Tab label="Founder" />
-              <Tab label="Your money your rules" />
-              <Tab label="Built for your growth" />
-            </CustomTab>
-          </MuiThemeProvider>
+            <MuiThemeProvider theme={tabtheme}>
+              <CustomTab value={this.state.index} onChange={this.handleChange}>
+                <Tab label="Founder Focused" />
+                <Tab label="Your money your rules" />
+                <Tab label="Built for your growth" />
+              </CustomTab>
+            </MuiThemeProvider>
           </MediaQuery>
-          
+
           <MediaQuery maxWidth={720}>
             <MuiThemeProvider theme={mobiletabtheme}>
-            <MobileTab value={this.state.index} onChange={this.handleChange}>
-            <Tab label="Founder" />
-              <Tab label="Your money your rules" />
-              <Tab label="Built for your growth" />
-            </MobileTab>
+              <MobileTab value={this.state.index} onChange={this.handleChange}>
+                <Tab label="Founder" />
+                <Tab label="Your money your rules" />
+                <Tab label="Built for your growth" />
+              </MobileTab>
             </MuiThemeProvider>
-            
           </MediaQuery>
 
           <SwipeableViews
-            slideStyle={{ overflow: "hidden", paddingTop: "80px" }}
+            slideStyle={{ overflow: "hidden", paddingTop: "110px" }}
             index={this.state.index}
             onChangeIndex={this.handleChangeIndex}
           >
             <Grid container spacing={2}>
-                <Grid item xs={12} sm={6} md={6} lg={6}>
-                <div style={{ width: "45%" }} className="platformText">
-                <div className="bluetitle">
-                  <span>FOUNDER FOCUSED</span>
+              <Grid item xs={12} sm={6} md={6} lg={6}>
+                <div className="platformText">
+                  <div className="bluetitle">
+                    <span>FOUNDER FOCUSED</span>
+                  </div>
+                  <div className="blacktitle2">
+                    <span>Control your money, your way</span>
+                  </div>
+                  <div style={{ marginTop: "60px" }} className="smallerTexts">
+                    <span className="blackTexts">
+                      {" "}
+                      Empower your team, keep control{" "}
+                    </span>
+                    <span className="greyTexts">
+                      We are founder focussed. It’s already hard enough to build
+                      a company. It’s shouldn’t be hard run yours.
+                    </span>
+                  </div>
+                  <button
+                    style={{
+                      display: "block",
+                      height: "52px",
+                      marginTop: "25px",
+                      width: "150px",
+                    }}
+                    className="SignUpFormsSubmit"
+                  >
+                    Get Nash
+                  </button>
                 </div>
-                <div className="blacktitle2">
-                  <span>Control your money, your way</span>
-                </div>
-                <div
-                  style={{ width: "300px", marginTop: "60px" }}
-                  className="smallerTexts"
-                >
-                  <span className="blackTexts">
-                    {" "}
-                    Empower your team, keep control{" "}
-                  </span>
-                  <span className="greyTexts">
-                    We are founder focussed. It’s already hard enough to build a
-                    company. It’s shouldn’t be hard run yours.
-                  </span>
-                </div>
-              </div>
-                </Grid>
-                <Grid item xs={12} sm={6} md={6} lg={6}>
-                <div>
+              </Grid>
+              <Grid
+                style={{ maxWidth: "48%" }}
+                item
+                xs={12}
+                sm={6}
+                md={6}
+                lg={6}
+              >
                 <MuiThemeProvider theme={papertheme}>
-                  <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6} md={6} lg={6}>
+                  <Grid
+                    container
+                    spacing={2}
+                    style={{ justifyContent: "space-between" }}
+                  >
+                    <Grid item xs={12} md={4} lg={4}>
+                      <Paper>
+                        <div style={{ marginTop: "-44px" }} className="whiteBg">
+                          <div
+                            style={{ backgroundColor: "#8BC7FF" }}
+                            className="blueBg"
+                          >
+                            <img
+                              style={{ height: "25px" }}
+                              src={this.state.paperContent[0].img}
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                        <p className="cardTitle">{this.state.paperContent[0].title} </p>
+                        <p className="cardSubtitle">
+                          {this.state.paperContent[0].subtitle}{" "}
+                        </p>
+                        <p className="contentTexts"
+                        >
+                          {" "}
+                          {this.state.paperContent[0].paragrph}{" "}
+                        </p>
+                      </Paper>
+                    </Grid>
+                    <Grid>
+                      {" "}
+                      {/*  item xs={12} md={4} lg={4} */}
                       <Paper>
                         <div style={{ marginTop: "-44px" }} className="whiteBg">
                           <div
@@ -291,17 +341,21 @@ class Features extends Component {
                           >
                             <img
                               style={{ height: "20px" }}
-                              src={this.state.paperContent[0].img}
+                              src={this.state.paperContent[2].img}
                               alt=""
                             />
                           </div>
                         </div>
-                        <h3>{this.state.paperContent[0].title} </h3>
-                        <p>{this.state.paperContent[0].subtitle} </p>
-                        <p className="greyText">
-                          {this.state.paperContent[0].paragrph}
+                        <p className="cardTitle">{this.state.paperContent[2].title} </p>
+                        <p className="cardSubtitle">
+                          {this.state.paperContent[2].subtitle}{" "}
+                        </p>
+                        <p className="contentTexts">
+                          {this.state.paperContent[2].paragrph}
                         </p>
                       </Paper>
+                    </Grid>
+                    <Grid item xs={12} md={4} lg={4}>
                       <Paper>
                         <div style={{ marginTop: "-44px" }} className="whiteBg">
                           <div
@@ -315,15 +369,72 @@ class Features extends Component {
                             />
                           </div>
                         </div>
-                        <h3>{this.state.paperContent[1].title} </h3>
-                        <p>{this.state.paperContent[1].subtitle} </p>
-                        <p className="greyText">
-                          {" "}
-                          {this.state.paperContent[1].paragrph}{" "}
+                        <p className="cardTitle">{this.state.paperContent[1].title} </p>
+                        <p className="cardSubtitle">
+                          {this.state.paperContent[1].subtitle}
+                        </p>
+                        <p
+                          className="contentTexts"
+                        >
+                          {this.state.paperContent[1].paragrph}
                         </p>
                       </Paper>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={6} lg={6}>
+                  </Grid>
+                </MuiThemeProvider>
+              </Grid>
+            </Grid>
+
+            <Grid container spacing={2}>
+              <Grid item xs={12} sm={6} md={6} lg={6}>
+                <div className="platformText">
+                  <div style={{ width: "195px" }} className="bluetitle">
+                    <span>YOUR MONEY YOUR RULES</span>
+                  </div>
+                  <div className="blacktitle2">
+                    <span>Spend your money, your way</span>
+                  </div>
+                  <div
+                    style={{ marginTop: "60px", marginBottom: "50px" }}
+                    className="smallerTexts"
+                  >
+                    <span className="blackTexts">
+                      {" "}
+                      Let your money work for you anywhere with no restrictions{" "}
+                    </span>
+                    <span className="greyTexts">
+                      We are international with local regulation. We are here to
+                      empower your growth globally.
+                    </span>
+                  </div>
+                  <button
+                    style={{
+                      display: "block",
+                      height: "52px",
+                      marginTop: "25px",
+                      width: "150px",
+                    }}
+                    className="SignUpFormsSubmit"
+                  >
+                    Get Nash
+                  </button>
+                </div>
+              </Grid>
+              <Grid
+                style={{ maxWidth: "48%" }}
+                item
+                xs={12}
+                sm={6}
+                md={6}
+                lg={6}
+              >
+                <MuiThemeProvider theme={papertheme}>
+                  <Grid
+                    container
+                    spacing={2}
+                    style={{ justifyContent: "space-between" }}
+                  >
+                    <Grid item xs={12} md={4} lg={4}>
                       <Paper>
                         <div style={{ marginTop: "-44px" }} className="whiteBg">
                           <div
@@ -332,241 +443,235 @@ class Features extends Component {
                           >
                             <img
                               style={{ height: "25px" }}
-                              src={this.state.paperContent[2].img}
+                              src={this.state.paperContent[3].img}
                               alt=""
                             />
                           </div>
                         </div>
-                        <h3>{this.state.paperContent[2].title} </h3>
-                        <p className="subHeading">
-                          {this.state.paperContent[2].subtitle}
+                        <p className="cardTitle">Pay for anything, <br/> anywhere</p>
+
+                        <p className="contentTexts" style={{ marginTop: "30px"}}
+                        >
+                          {" "}
+                          {this.state.paperContent[3].paragrph}
                         </p>
-                        <p className="greyText">
-                          {this.state.paperContent[2].paragrph}
+                      </Paper>
+                    </Grid>
+                    <Grid>
+                      <Paper>
+                        <div style={{ marginTop: "-44px" }} className="whiteBg">
+                          <div
+                            style={{ backgroundColor: "#8BC7FF" }}
+                            className="blueBg"
+                          >
+                            <img
+                              style={{ height: "25px" }}
+                              src={this.state.paperContent[4].img}
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                        <p className="cardTitle" >{this.state.paperContent[4].title} </p>
+
+                        <p style={{ marginTop: "35px" }}
+                          className="contentTexts"
+                        >
+                          {this.state.paperContent[4].paragrph}
+                        </p>
+                      </Paper>
+                    </Grid>
+                    <Grid item xs={12} md={4} lg={4}>
+                      <Paper>
+                        <div style={{ marginTop: "-44px" }} className="whiteBg">
+                          <div
+                            style={{ backgroundColor: "#8BC7FF" }}
+                            className="blueBg"
+                          >
+                            <img
+                              style={{ height: "25px" }}
+                              src={this.state.paperContent[5].img}
+                              alt=""
+                            />
+                          </div>
+                        </div>
+                        <p className="cardTitle">Set Up Recurring <br/> Payments </p>
+                        <p className="subHeading"></p>
+                        <p
+                          className="contentTexts"
+                        >
+                          {this.state.paperContent[5].paragrph}
                         </p>
                       </Paper>
                     </Grid>
                   </Grid>
                 </MuiThemeProvider>
-              </div>
-                </Grid>
+              </Grid>
             </Grid>
-              
-             
-            
+
             <div>
               <Grid container spacing={2}>
                 <Grid item xs={12} sm={6} md={6} lg={6}>
                   <div className="platformText">
-                    <div style={{ width: "175px" }} className="bluetitle">
-                      <span>YOUR MONEY YOUR RULES</span>
+                    <div style={{ width: "195px" }} className="bluetitle">
+                      <span>BUILT FOR YOUR GROWTH</span>
                     </div>
                     <div className="blacktitle2">
-                      <span>Spend your money, your way</span>
+                      <span>Finances, your way</span>
                     </div>
-                    <div
-                      style={{ width: "300px", marginTop: "60px", marginBottom: "50px" }}
-                      className="smallerTexts"
-                    >
+                    <div style={{ marginTop: "60px" }} className="smallerTexts">
                       <span className="blackTexts">
                         {" "}
-                        Let your money work for you anywhere with no
-                        restrictions{" "}
+                        Empower your team, keep control{" "}
                       </span>
                       <span className="greyTexts">
-                        We are international with local regulation. We are here
-                        to empower your growth globally.
+                        We are founder focussed. It’s already hard enough to
+                        build a company. It’s shouldn’t be hard run yours.
                       </span>
                     </div>
+                    <button
+                      style={{
+                        display: "block",
+                        height: "52px",
+                        marginTop: "25px",
+                        width: "150px",
+                      }}
+                      className="SignUpFormsSubmit"
+                    >
+                      Get Nash
+                    </button>
                   </div>
                 </Grid>
-                <Grid item xs={12} sm={6} md={6} lg={6}>
+                <Grid
+                  style={{ paddingLeft: "24px", maxWidth: "34%" }}
+                  item
+                  xs={12}
+                  sm={6}
+                  md={6}
+                  lg={6}
+                >
                   <MuiThemeProvider theme={papertheme}>
                     <Grid container spacing={2}>
-                      <Grid item xs={12} sm={6} md={6} lg={6}>
-                        <Paper>
-                          <div
-                            style={{ marginTop: "-44px" }}
-                            className="whiteBg"
-                          >
+                      <Grid
+                        item
+                        container
+                        spacing={2}
+                        style={{ justifyContent: "space-between" }}
+                      >
+                        <Grid item xs={12} md={3} lg={3}>
+                          <Paper>
                             <div
-                              style={{ backgroundColor: "#8BC7FF" }}
-                              className="blueBg"
+                              style={{ marginTop: "-44px" }}
+                              className="whiteBg"
                             >
-                              <img
-                                style={{ height: "25px" }}
-                                src={this.state.paperContent[3].img}
-                                alt=""
-                              />
+                              <div
+                                style={{ backgroundColor: "#8BC7FF" }}
+                                className="blueBg"
+                              >
+                                <img
+                                  style={{ height: "25px" }}
+                                  src={this.state.paperContent[6].img}
+                                  alt=""
+                                />
+                              </div>
                             </div>
-                          </div>
-                          <h3>{this.state.paperContent[3].title}</h3>
-
-                          <p className="greyText">
-                            {" "}
-                            {this.state.paperContent[3].paragrph}
-                          </p>
-                        </Paper>
-                        <Paper>
-                          <div
-                            style={{ marginTop: "-44px" }}
-                            className="whiteBg"
-                          >
+                            <p className="cardTitle">{this.state.paperContent[6].title} </p>
+                            <p
+                              className="contentTexts"
+                            >
+                              {this.state.paperContent[6].paragrph}
+                            </p>
+                          </Paper>
+                        </Grid>
+                        <Grid item xs={12} md={3}>
+                          <Paper>
                             <div
-                              style={{ backgroundColor: "#8BC7FF" }}
-                              className="blueBg"
+                              style={{ marginTop: "-44px" }}
+                              className="whiteBg"
                             >
-                              <img
-                                style={{ height: "25px" }}
-                                src={this.state.paperContent[5].img}
-                                alt=""
-                              />
+                              <div
+                                style={{ backgroundColor: "#8BC7FF" }}
+                                className="blueBg"
+                              >
+                                <img
+                                  style={{ height: "25px" }}
+                                  src={this.state.paperContent[7].img}
+                                  alt=""
+                                />
+                              </div>
                             </div>
-                          </div>
-                          <h3>{this.state.paperContent[5].title} </h3>
+                            <p className="cardTitle">{this.state.paperContent[7].title}</p>
 
-                          <p className="greyText">
-                            {this.state.paperContent[5].paragrph}
-                          </p>
-                        </Paper>
+                            <p
+                              className="contentTexts"
+                            >
+                              {this.state.paperContent[7].paragrph}
+                            </p>
+                          </Paper>
+                        </Grid>
                       </Grid>
-                      <Grid item xs={12} sm={6} md={6} lg={6}>
-                        <Paper>
-                          <div
-                            style={{ marginTop: "-44px" }}
-                            className="whiteBg"
-                          >
+                      <Grid
+                        item
+                        container
+                        spacing={2}
+                        style={{ justifyContent: "space-between" }}
+                      >
+                        <Grid item xs={12} md={3}>
+                          <Paper>
                             <div
-                              style={{ backgroundColor: "#8BC7FF" }}
-                              className="blueBg"
+                              style={{ marginTop: "-44px" }}
+                              className="whiteBg"
                             >
-                              <img
-                                style={{ height: "25px" }}
-                                src={this.state.paperContent[4].img}
-                                alt=""
-                              />
+                              <div
+                                style={{ backgroundColor: "#8BC7FF" }}
+                                className="blueBg"
+                              >
+                                <img
+                                  style={{ height: "25px" }}
+                                  src={this.state.paperContent[8].img}
+                                  alt=""
+                                />
+                              </div>
                             </div>
-                          </div>
-                          <h3>{this.state.paperContent[4].title} </h3>
-                          <p className="subHeading"></p>
-                          <p className="greyText">
-                            {this.state.paperContent[4].paragrph}
-                          </p>
-                        </Paper>
+                            <p className="cardTitle">{this.state.paperContent[8].title} </p>
+
+                            <p
+                              className="contentTexts"
+                            >
+                              {this.state.paperContent[8].paragrph}
+                            </p>
+                          </Paper>
+                        </Grid>
+                        <Grid item xs={12} md={3}>
+                          <Paper>
+                            <div
+                              style={{ marginTop: "-44px" }}
+                              className="whiteBg"
+                            >
+                              <div
+                                style={{ backgroundColor: "#8BC7FF" }}
+                                className="blueBg"
+                              >
+                                <img
+                                  style={{ height: "25px" }}
+                                  src={this.state.paperContent[9].img}
+                                  alt=""
+                                />
+                              </div>
+                            </div>
+                            <p className="cardTitle">{this.state.paperContent[9].title} </p>
+
+                            <p
+                              className="contentTexts"
+                            >
+                              {this.state.paperContent[9].paragrph}
+                            </p>
+                          </Paper>
+                        </Grid>
                       </Grid>
                     </Grid>
                   </MuiThemeProvider>
                 </Grid>
               </Grid>
-            </div>
-
-            <div>
-                <Grid container spacing={2}>
-                    <Grid item xs={12} sm={6} md={6} lg={6}>
-                    <div style={{ width: "45%" }} className="platformText">
-                  <div style={{ width: "175px" }} className="bluetitle">
-                    <span>BUILT FOR YOUR GROWTH</span>
-                  </div>
-                  <div className="blacktitle2">
-                    <span>Finances, your way</span>
-                  </div>
-                  <div
-                    style={{ width: "300px", marginTop: "60px" }}
-                    className="smallerTexts"
-                  >
-                    <span className="blackTexts">
-                      {" "}
-                      Empower your team, keep control{" "}
-                    </span>
-                    <span className="greyTexts">
-                      We are founder focussed. It’s already hard enough to build
-                      a company. It’s shouldn’t be hard run yours.
-                    </span>
-                  </div>
-                </div>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={6} lg={6}>
-                    <div>
-                  <MuiThemeProvider theme={papertheme}>
-                    <Grid container spacing={2}>
-                      <Grid item xs={12} sm={6} md={6} lg={6}>
-                        <Paper>
-                          <div
-                            style={{ marginTop: "-44px" }}
-                            className="whiteBg"
-                          >
-                            <div
-                              style={{ backgroundColor: "#8BC7FF" }}
-                              className="blueBg"
-                            >
-                              <img
-                                style={{ height: "25px" }}
-                                src={this.state.paperContent[6].img}
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <h3>{this.state.paperContent[6].title} </h3>
-                          <p className="greyText">
-                            {this.state.paperContent[6].paragrph}
-                          </p>
-                        </Paper>
-                        <Paper>
-                          <div
-                            style={{ marginTop: "-44px" }}
-                            className="whiteBg"
-                          >
-                            <div
-                              style={{ backgroundColor: "#8BC7FF" }}
-                              className="blueBg"
-                            >
-                              <img
-                                style={{ height: "25px" }}
-                                src={this.state.paperContent[8].img}
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <h3>{this.state.paperContent[8].title}</h3>
-
-                          <p className="greyText">
-                            {this.state.paperContent[8].paragrph}
-                          </p>
-                        </Paper>
-                      </Grid>
-                      <Grid item xs={12} sm={6} md={6} lg={6}>
-                        <Paper>
-                          <div
-                            style={{ marginTop: "-44px" }}
-                            className="whiteBg"
-                          >
-                            <div
-                              style={{ backgroundColor: "#8BC7FF" }}
-                              className="blueBg"
-                            >
-                              <img
-                                style={{ height: "25px" }}
-                                src={this.state.paperContent[7].img}
-                                alt=""
-                              />
-                            </div>
-                          </div>
-                          <h3>{this.state.paperContent[7].title} </h3>
-
-                          <p className="greyText">
-                            {this.state.paperContent[7].paragrph}
-                          </p>
-                        </Paper>
-                      </Grid>
-                    </Grid>
-                  </MuiThemeProvider>
-                </div>
-             
-                    </Grid>
-                </Grid>
-             
-                
-                
             </div>
           </SwipeableViews>
         </section>

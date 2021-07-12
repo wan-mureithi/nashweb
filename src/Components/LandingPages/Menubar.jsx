@@ -12,6 +12,10 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { withRouter } from "react-router-dom";
+import { Link } from "react-scroll";
+import SignupModal from "../SignupModal";
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 const stylesIndex = theme => ({
   root: {
@@ -22,6 +26,13 @@ const stylesIndex = theme => ({
   },
   title: {
     flexGrow: 1
+  },
+  toolbar: {
+    backgroundColor:'white',
+    borderRadius:'0 0 0 30px',
+    
+    boxShadow: "0px 4px 25px rgb(0 0 0 / 10%)",
+    height: '87px'
   }
 });
 
@@ -33,21 +44,34 @@ const themeAppBar = createMuiTheme({
   },
   overrides: {
     MuiAppBar: {
+      root:{
+        // borderRadius:'0 0 0 30px',
+        // boxShadow: "0px 4px 25px rgb(0 0 0 / 10%)",
+       height: '74px'
+      },
+      positionFixed :{
+      // left:'100px'
+      },
+
       colorPrimary: {
-        backgroundColor: "#FFFFFF"
+        backgroundColor: "transparent"
       }
     },
     MuiPaper: {
       elevation4: {
-        boxShadow: " 0px 1px 0px #E5E9F2"
+         boxShadow: "none"
+      },
+      root: {
+        maxWidth:'1335px',
+        margin:'auto'
       }
     },
     MuiButton: {
       root: {
         marginRight: "15px",
-        fontFamily: "inherit",
-        color: "#252B33 !important",
-        fontSize: "14px",
+        fontFamily: "Poppins",
+        color: "#898989 !important",
+        fontSize: "16px",
         fontWeight: 500,
         textTransform: "none",
         backgroundColor: "none !important",
@@ -82,8 +106,10 @@ class Menubar extends Component {
     super(props);
     this.state = {
       mobileOpen: false,
+      setOpen: false,
+      isChecked: false,
       landingPageMenu: [
-        
+
         { id: "Whyus", label: "Why us" },
         { id: "Features", label: "Features" }
       ],
@@ -91,8 +117,14 @@ class Menubar extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.handleOpen = this.handleOpen.bind(this);
   }
-
+  componentDidMount() {
+    this.setState({ isChecked: true });
+    AOS.init({
+      duration: 2000
+    });
+  }
   handleChange(menuItem) {
     this.setState({ menu: menuItem });
     this.props.history.push(`/${menuItem}`);
@@ -100,6 +132,9 @@ class Menubar extends Component {
       top: 0,
       behavior: "smooth"
     });
+  }
+  handleOpen() {
+    this.setState({ setOpen: !this.state.setOpen });
   }
 
   handleDrawerToggle = () => {
@@ -121,21 +156,27 @@ class Menubar extends Component {
 
   render() {
     const { classes } = this.props;
+
     return (
       <div className={classes.root}>
         <MuiThemeProvider theme={themeAppBar}>
           <AppBar position="fixed">
-            <Toolbar>
+            <Toolbar className={classes.toolbar}>
               <div className="DisplayFlex1" style={{ flexGrow: 1 }}>
-                <img
-                  alt="nash"
-                  src="./assets/mainlogo.png"
-                  style={{ marginLeft: "15%", cursor: "pointer" }}
-                  onClick={() => {
-                    this.props.history.push("/");
-                    localStorage.setItem("landingPageMenu", "Whyus");
-                  }}
-                />
+              <Link
+                  activeClass="active"
+                  className="landingPageButton"
+                  to="header-container"
+                  spy={true}
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                ><img
+                alt="nash"
+                src="./assets/mainlogo.png"
+                style={{ marginLeft: "15%", cursor: "pointer" }}
+              /></Link>
+
               </div>
 
               <Hidden smUp implementation="css">
@@ -166,50 +207,74 @@ class Menubar extends Component {
                           ? "LandingPageSelected"
                           : "landingPageButton"
                       }
+
                       onClick={() => this.handleSelectedMenu(index)}
                     >
                       {menu.label}
                     </Button>
                   ))}
-                  
+
                   <button
                     className="SignUpFormsSubmit"
-                    style={{ width: "100px" }}
+                    style={{ width: "150px" }}
+                    onClick={()=>this.handleOpen()}
                   >
-                    Get started
+                    Get Nash
                   </button>
                 </Drawer>
               </Hidden>
               <Hidden xsDown>
-                {this.state.landingPageMenu.map((menu, index) => (
+              <Link
+                  activeClass="active"
+                  className="landingPageButton"
+                  to="header-container"
+                  spy={true}
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                >
                   <Button
                     color="inherit"
-                    key={index}
-                    className={
-                      this.state.menu === menu.id
-                        ? "LandingPageSelected"
-                        : "landingPageButton"
-                    }
-                    onClick={() => this.handleSelectedMenu(index)}
+                    className= "landingPageButton"
                     component="button"
+                    style={{ marginRight:'40px'}}
                   >
-                    {menu.label}
+                    Why Nash
                   </Button>
-                ))}
-                
+                </Link>
+                <Link
+                  activeClass="active"
+                  className="landingPageButton"
+                  to="controlMoney"
+                  spy={true}
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                >
+                  <Button
+                    color="inherit"
+                    className= "landingPageButton"
+                    component="button"
+                    style={{ marginRight:'40px'}}
+                  >
+                    Features
+                  </Button>
+                </Link>
+
                 <button
                   className="SignUpFormsSubmit"
                   style={{
                     marginBottom: "0px",
-                    width: "100px",
+                    width: "150px",
                     marginRight: "10%"
                   }}
-                  onClick={() => this.props.history.push("/Signup")}
+                  onClick={()=>this.handleOpen()}
                 >
-                  Get started
+                  Get Nash
                 </button>
               </Hidden>
             </Toolbar>
+            <SignupModal handleOpen={this.handleOpen} setOpen={this.state.setOpen}/>
           </AppBar>
         </MuiThemeProvider>
       </div>
