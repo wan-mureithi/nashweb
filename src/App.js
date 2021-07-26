@@ -16,7 +16,7 @@ const poppins = {
 
 const theme = createMuiTheme({
   typography: {
-    fontFamily: "Poppins Regualr 400 !important"
+    fontFamily: "Poppins !important"
   },
   overrides: {
     MuiCssBaseline: {
@@ -26,7 +26,7 @@ const theme = createMuiTheme({
     },
     MuiTypography: {
       root: {
-        fontFamily: "Poppins Regualr 400 !important"
+        fontFamily: "Poppins !important"
       }
     }
   }

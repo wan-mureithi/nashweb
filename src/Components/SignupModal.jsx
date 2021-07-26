@@ -6,7 +6,8 @@ import {
   Backdrop,
   MuiThemeProvider,
   Select,
-  MenuItem,Input
+  MenuItem,
+  Input,
 } from "@material-ui/core";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -56,30 +57,30 @@ const themeModal = createMuiTheme({
   },
 });
 const dropdown = createMuiTheme({
-    overrides:{
-        MuiPaper: {
-            root: {
-                backgroundColor:'#090909',
-                borderRadius:'10px'
-            }
-        },
-       
-        MuiMenuItem: {
-            root: {
-                color:'white'
-            }
-        }
-    }
-})
+  overrides: {
+    MuiPaper: {
+      root: {
+        backgroundColor: "#090909",
+        borderRadius: "10px",
+      },
+    },
+
+    MuiMenuItem: {
+      root: {
+        color: "white",
+      },
+    },
+  },
+});
 
 class SignupModal extends Component {
   constructor() {
     super();
     this.companysize = [
-      { id: 0, value: 'How big is your company?' },
-      { id: 1, value: '1-10 Employees' },
-      { id: 2, value: '11-50 Employees' },
-      { id: 3, value: '51-100 Employees' }
+      { id: 0, value: "How big is your company?" },
+      { id: 1, value: "1-10 Employees" },
+      { id: 2, value: "11-50 Employees" },
+      { id: 3, value: "51-100 Employees" },
     ];
     this.state = {
       email: "",
@@ -96,13 +97,14 @@ class SignupModal extends Component {
       selectedCompanysize: this.companysize[0],
       companySize: "How big is your company?",
       monthlyExpense: "What is your current monthly business expenses?",
-      monthlyIncome: "How much do you currently have in your business bank account?",
-      annualRevenue: "How much do you make in annual revenues from your business?",
-      countries:"Country of primary operations for your business?",
+      monthlyIncome:
+        "How much do you currently have in your business bank account?",
+      annualRevenue:
+        "How much do you make in annual revenues from your business?",
+      countries: "Country of primary operations for your business?",
       countryOfIncorporation: "Where is your company incorporated?",
-      headquarters: "Where are your headquarters?"
+      headquarters: "Where are your headquarters?",
     };
-   
 
     this.handleFormInput = this.handleFormInput.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -110,7 +112,7 @@ class SignupModal extends Component {
   componentDidMount() {
     this.setState({ isChecked: true });
     AOS.init({
-      duration: 2000
+      duration: 2000,
     });
   }
   handleFormInput(event) {
@@ -122,68 +124,74 @@ class SignupModal extends Component {
 
   handleSubmit = async () => {
     this.setState({ isLoading: true });
-    // var payload = {
-    //   username: this.state.email,
-    //   password: this.state.password,
-    //   type: "2"
-    // };
+    var payload = {
+      username: this.state.email,
+      companySpendID: this.state.companySize,
+
+    };
   };
 
   render() {
     const { classes } = this.props;
     const sizeOptions = [
-      { id: 0, value: 'How big is your company?' },
-      { id: 1, value: '1-10 Employees' },
-      { id: 2, value: '11-50 Employees' },
-      { id: 3, value: '51-100 Employees' }
+      { id: 0, value: "How big is your company?" },
+      { id: 1, value: "1-10 Employees" },
+      { id: 2, value: "11-50 Employees" },
+      { id: 3, value: "51-100 Employees" },
     ];
     const monthlyExpenses = [
-      { id: 0, value: 'What is your current monthly business expenses?' },
-      { id: 1, value: 'Under $50,000' },
-      { id: 2, value: '$50,001-250,000' },
-      { id: 3, value: '$250,000+' }
+      { id: 0, value: "What is your current monthly business expenses?" },
+      { id: 1, value: "Under $50,000" },
+      { id: 2, value: "$50,001-250,000" },
+      { id: 3, value: "$250,000+" },
     ];
     const monthlyIncome = [
-      { id: 0, value: 'How much do you currently have in your business bank account?' },
-      { id: 1, value: 'Under $50,000' },
-      { id: 2, value: '$50,001-250,000' },
-      { id: 3, value: '$250,000+' }
+      {
+        id: 0,
+        value: "How much do you currently have in your business bank account?",
+      },
+      { id: 1, value: "Under $50,000" },
+      { id: 2, value: "$50,001-250,000" },
+      { id: 3, value: "$250,000+" },
     ];
     const annualRevenue = [
-      { id: 0, value: 'How much do you make in annual revenues from your business?' },
-      { id: 1, value: 'Under $10,000' },
-      { id: 2, value: '$30,001-50,000' },
-      { id: 3, value: '$50,001-70,000' },
-      { id: 4, value: '$70,000-90,000' },
-      { id: 5, value: '$90,000+' }
+      {
+        id: 0,
+        value: "How much do you make in annual revenues from your business?",
+      },
+      { id: 1, value: "Under $10,000" },
+      { id: 2, value: "$30,001-50,000" },
+      { id: 3, value: "$50,001-70,000" },
+      { id: 4, value: "$70,000-90,000" },
+      { id: 5, value: "$90,000+" },
     ];
     const countries = [
-      { id: 0, value: 'Country of primary operations for your business?' },
-      { id: 1, value: 'Kenya' },
-      { id: 2, value: 'Uganda' },
-      { id: 3, value: 'Tanzania' },
-      { id: 4, value: 'Rwanda' },
-      { id: 5, value: 'Ethiopia' }
+      { id: 0, value: "Country of primary operations for your business?" },
+      { id: 1, value: "Kenya" },
+      { id: 2, value: "Uganda" },
+      { id: 3, value: "Tanzania" },
+      { id: 4, value: "Rwanda" },
+      { id: 5, value: "Ethiopia" },
     ];
     const incorporation = [
-      { id: 0, value: 'Where is your company incorporated?' },
-      { id: 1, value: 'Kenya' },
-      { id: 2, value: 'Uganda' },
-      { id: 3, value: 'Tanzania' },
-      { id: 4, value: 'Rwanda' },
-      { id: 5, value: 'Ethiopia' }
+      { id: 0, value: "Where is your company incorporated?" },
+      { id: 1, value: "Kenya" },
+      { id: 2, value: "Uganda" },
+      { id: 3, value: "Tanzania" },
+      { id: 4, value: "Rwanda" },
+      { id: 5, value: "Ethiopia" },
     ];
     const counties = [
-      { id: 0, value: 'Where are your headquarters?' },
-      { id: 1, value: 'Nairobi' },
-      { id: 2, value: 'Kigali' },
-      { id: 3, value: 'Kampala' },
-      { id: 4, value: 'Dodoma' },
-      { id: 5, value: 'Kisumu' }
+      { id: 0, value: "Where are your headquarters?" },
+      { id: 1, value: "Nairobi" },
+      { id: 2, value: "Kigali" },
+      { id: 3, value: "Kampala" },
+      { id: 4, value: "Dodoma" },
+      { id: 5, value: "Kisumu" },
     ];
 
     return (
-      <div >
+      <div>
         <MuiThemeProvider theme={themeModal}>
           <Modal
             className={classes.modal}
@@ -192,7 +200,11 @@ class SignupModal extends Component {
             closeAfterTransition
             BackdropComponent={Backdrop}
           >
-            <div  data-aos="fade-up" data-aos-duration="2000" className={classes.paper}>
+            <div
+              data-aos="fade-up"
+              data-aos-duration="2000"
+              className={classes.paper}
+            >
               <div className="ModalPaper">
                 <div className="ModalHeader" style={{ padding: "0px" }}>
                   <div>
@@ -227,162 +239,182 @@ class SignupModal extends Component {
                       type="text"
                       className="flexedInput"
                     />
-                   <MuiThemeProvider theme={dropdown}>
-                  <Select
+                    <MuiThemeProvider theme={dropdown}>
+                      <Select
                         className="FilterSelect"
                         disableUnderline={true}
                         MenuProps={MenuProps}
-                        onChange={e => this.setState({ companySize: e.target.value })}
-                        style={{
-                          
-                        }}
-                        value={this.state.companySize}>
-                  {sizeOptions.map((option, key) => (
-                  <MenuItem
-                    value={option.value}
-                    key={key}
-                    style={{ fontFamily: 'Poppins' }}>
-                    {option.value}
-                  </MenuItem>
-                ))}
-                      
-                       
+                        onChange={(e) =>
+                          this.setState({ companySize: e.target.value })
+                        }
+                        style={{}}
+                        value={this.state.companySize}
+                      >
+                        {sizeOptions.map((option, key) => (
+                          <MenuItem
+                            value={option.value}
+                            key={key}
+                            style={{ fontFamily: "Poppins" }}
+                          >
+                            {option.value}
+                          </MenuItem>
+                        ))}
                       </Select>
-                  </MuiThemeProvider>
+                    </MuiThemeProvider>
                   </div>
                   <MuiThemeProvider theme={dropdown}>
-                  <Select
-                        className="FilterSelect"
-                        input={<Input disableUnderline />}
-                        MenuProps={MenuProps}
-                        onChange={e => this.setState({ monthlyExpense: e.target.value })}
-                        style={{
-                          marginBottom: "20px"
-                        }}
-                        value={this.state.monthlyExpense}>
-                        {monthlyExpenses.map((option, key) => (
-                  <MenuItem
-                    value={option.value}
-                    key={key}
-                    style={{ fontFamily: 'Poppins' }}>
-                    {option.value}
-                  </MenuItem>
-                ))}
-                      </Select>
+                    <Select
+                      className="FilterSelect"
+                      input={<Input disableUnderline />}
+                      MenuProps={MenuProps}
+                      onChange={(e) =>
+                        this.setState({ monthlyExpense: e.target.value })
+                      }
+                      style={{
+                        marginBottom: "35px",
+                      }}
+                      value={this.state.monthlyExpense}
+                    >
+                      {monthlyExpenses.map((option, key) => (
+                        <MenuItem
+                          value={option.value}
+                          key={key}
+                          style={{ fontFamily: "Poppins" }}
+                        >
+                          {option.value}
+                        </MenuItem>
+                      ))}
+                    </Select>
                   </MuiThemeProvider>
-                  
+
                   <MuiThemeProvider theme={dropdown}>
-                  <Select
-                        className="FilterSelect"
-                        disableUnderline={true}
-                        MenuProps={MenuProps}
-                        onChange={e => this.setState({ monthlyIncome: e.target.value })}
-                        style={{
-                          marginBottom: "20px"
-                        }}
-                        value={this.state.monthlyIncome}>
-                         {monthlyIncome.map((option, key) => (
-                  <MenuItem
-                    value={option.value}
-                    key={key}
-                    style={{ fontFamily: 'Poppins' }}>
-                    {option.value}
-                  </MenuItem>
-                ))}
-                       
-                      </Select>
+                    <Select
+                      className="FilterSelect"
+                      disableUnderline={true}
+                      MenuProps={MenuProps}
+                      onChange={(e) =>
+                        this.setState({ monthlyIncome: e.target.value })
+                      }
+                      style={{
+                        marginBottom: "35px",
+                      }}
+                      value={this.state.monthlyIncome}
+                    >
+                      {monthlyIncome.map((option, key) => (
+                        <MenuItem
+                          value={option.value}
+                          key={key}
+                          style={{ fontFamily: "Poppins" }}
+                        >
+                          {option.value}
+                        </MenuItem>
+                      ))}
+                    </Select>
                   </MuiThemeProvider>
                   <MuiThemeProvider theme={dropdown}>
-                  <Select
-                        className="FilterSelect"
-                        disableUnderline={true}
-                        MenuProps={MenuProps}
-                        onChange={e => this.setState({ annualRevenue: e.target.value })}
-                        style={{
-                          marginBottom: "20px"
-                        }}
-                        value={this.state.annualRevenue}>
-                        {annualRevenue.map((option, key) => (
-                  <MenuItem
-                    value={option.value}
-                    key={key}
-                    style={{ fontFamily: 'Poppins' }}>
-                    {option.value}
-                  </MenuItem>
-                ))}
-                         
-                      </Select>
+                    <Select
+                      className="FilterSelect"
+                      disableUnderline={true}
+                      MenuProps={MenuProps}
+                      onChange={(e) =>
+                        this.setState({ annualRevenue: e.target.value })
+                      }
+                      style={{
+                        marginBottom: "20px",
+                      }}
+                      value={this.state.annualRevenue}
+                    >
+                      {annualRevenue.map((option, key) => (
+                        <MenuItem
+                          value={option.value}
+                          key={key}
+                          style={{ fontFamily: "Poppins" }}
+                        >
+                          {option.value}
+                        </MenuItem>
+                      ))}
+                    </Select>
                   </MuiThemeProvider>
                   <div className="displayFlexSpace1">
-                  <MuiThemeProvider theme={dropdown}>
-                  <Select
+                    <MuiThemeProvider theme={dropdown}>
+                      <Select
                         className="FilterSelect"
                         disableUnderline={true}
                         MenuProps={MenuProps}
-                        onChange={e => this.setState({ countries: e.target.value })}
+                        onChange={(e) =>
+                          this.setState({ countries: e.target.value })
+                        }
                         style={{
-                          marginRight: "10px"
+                          marginRight: "10px",
                         }}
-                        value={this.state.countries}>
+                        value={this.state.countries}
+                      >
                         {countries.map((option, key) => (
-                  <MenuItem
-                    value={option.value}
-                    key={key}
-                    style={{ fontFamily: 'Poppins' }}>
-                    {option.value}
-                  </MenuItem>
-                ))}
-                       
+                          <MenuItem
+                            value={option.value}
+                            key={key}
+                            style={{ fontFamily: "Poppins" }}
+                          >
+                            {option.value}
+                          </MenuItem>
+                        ))}
                       </Select>
-                  </MuiThemeProvider>
-                  <MuiThemeProvider theme={dropdown}>
-                  <Select
+                    </MuiThemeProvider>
+                    <MuiThemeProvider theme={dropdown}>
+                      <Select
                         className="FilterSelect"
                         disableUnderline={true}
                         MenuProps={MenuProps}
-                        onChange={e => this.setState({ headquarters: e.target.value })}
-                        style={{
-               
-                        }}
-                        value={this.state.headquarters}>
-                         {counties.map((option, key) => (
-                  <MenuItem
-                    value={option.value}
-                    key={key}
-                    style={{ fontFamily: 'Poppins' }}>
-                    {option.value}
-                  </MenuItem>
-                ))}
-                       
+                        onChange={(e) =>
+                          this.setState({ headquarters: e.target.value })
+                        }
+                        style={{}}
+                        value={this.state.headquarters}
+                      >
+                        {counties.map((option, key) => (
+                          <MenuItem
+                            value={option.value}
+                            key={key}
+                            style={{ fontFamily: "Poppins" }}
+                          >
+                            {option.value}
+                          </MenuItem>
+                        ))}
                       </Select>
-                  </MuiThemeProvider>
+                    </MuiThemeProvider>
                   </div>
                   <MuiThemeProvider theme={dropdown}>
-                  <Select
-                        className="FilterSelect"
-                        disableUnderline={true}
-                        MenuProps={MenuProps}
-                        onChange={e => this.setState({ countryOfIncorporation: e.target.value })}
-                        style={{
-                          marginBottom: "20px"
-                        }}
-                        value={this.state.countryOfIncorporation}>
-                        {incorporation.map((option, key) => (
-                  <MenuItem
-                    value={option.value}
-                    key={key}
-                    style={{ fontFamily: 'Poppins' }}>
-                    {option.value}
-                  </MenuItem>
-                ))}
-                       
-                      </Select>
+                    <Select
+                      className="FilterSelect"
+                      disableUnderline={true}
+                      MenuProps={MenuProps}
+                      onChange={(e) =>
+                        this.setState({
+                          countryOfIncorporation: e.target.value,
+                        })
+                      }
+                      style={{
+                        marginBottom: "20px",
+                      }}
+                      value={this.state.countryOfIncorporation}
+                    >
+                      {incorporation.map((option, key) => (
+                        <MenuItem
+                          value={option.value}
+                          key={key}
+                          style={{ fontFamily: "Poppins" }}
+                        >
+                          {option.value}
+                        </MenuItem>
+                      ))}
+                    </Select>
                   </MuiThemeProvider>
                 </div>
                 <div className="ModalFooter">
                   <button
                     style={{ width: "125px", float: "right" }}
                     className="SignUpFormsSubmit"
+                    onClick={()=>this.props.history.push("/VerifyEmail")}
                   >
                     SUBMIT
                   </button>

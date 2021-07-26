@@ -68,50 +68,39 @@
 }
 
 .SignUpFormsSubmit:focus {
-  background: #000000 0% 0% no-repeat padding-box;
+  background: #2282e2 0% 0% no-repeat padding-box;
   border: none;
   color: #ffffff;
   outline: none;
 }
-.BuySell {
-  height: 866px;
-  margin-top: 64px;
-  display: flex;
-  background: linear-gradient(
-    99.21deg,
-    #0c3e6e 31.54%,
-    #1bbaff 81.15%,
-    #ffffff 106.69%
-  );
-  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.1);
-  border-radius: 0px 0px 0px 60px;
 
-  background-repeat: no-repeat !important;
-  background-size: cover !important;
-  transform: scale(1);
-  transition: all 0.3s ease-in-out 0.1s;
-}
 .containerTexts {
   width: 425px;
   margin-right: 30px;
 }
 
-.BuySellCar {
-  width: 100%;
-  height: auto;
-  background-repeat: no-repeat !important;
-  background-position: right 20% center !important;
+.avatarDiv {
+  display: flex;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #3297f4;
+  box-sizing: border-box;
+  border-radius: 50px;
+  width: 148px;
+  height: 41px;
+  justify-content: space-between;
+  padding-right: 5px;
+  padding-left: 14px;
 }
-
-.BuySellDiv {
-  width: auto;
-  margin-left: 106px;
-  margin-top: 15%;
+.avatarDiv > span {
+  color: #000000;
+  font-size: 14px;
+  font-weight: 500;
 }
 .titleTexts {
   width: 462px;
-  margin-left: 106px;
-  margin-top: 192px !important;
+  margin-left: 105px;
+  margin-top: 192px;
 }
 .landingHeader {
   font-size: 40px;
@@ -119,10 +108,10 @@
   color: white;
   line-height: 43px;
   margin-bottom: 30px;
+  font-weight: 500;
 }
 .cardsImg1 {
   margin-left: 85px;
-  
   position: relative;
   top: 70px;
   /* position: absolute;
@@ -143,13 +132,15 @@
 }
 
 .LandingPageSubHeader {
-  font-family: "Poppins";
+  font-weight: 400 !important;
   font-size: 16px;
   line-height: 33px;
-  width: auto;
+  width: 510px;
   color: white;
   display: block;
   margin-top: 10px;
+  position: relative;
+  top: 90px;
   margin-bottom: 30px;
 }
 .landingHeaderx {
@@ -159,6 +150,7 @@
   font-family: "Poppins";
   color: white;
   line-height: 65px;
+  font-weight: 500;
 }
 /* .landingHeader span {
   font-weight: 600;
@@ -173,7 +165,6 @@
   font-family: "Poppins";
   font-weight: 700;
   overflow: hidden !important;
-  
 }
 .LandingPageWhiteText {
   font-size: 14px;
@@ -184,6 +175,7 @@
   text-align: left;
   color: #d9dbe1;
 }
+
 .GetStarted {
   background: #2282e2;
   box-shadow: 0px 15px 25px rgba(34, 130, 226, 0.2);
@@ -204,6 +196,7 @@
 }
 .getStartedInput {
   margin-top: 30px;
+  margin-left: 105px;
   display: flex;
   background-color: white;
   height: 55px;
@@ -211,27 +204,32 @@
   justify-content: space-between;
   padding: 2px 12px;
   width: 507.86px;
-height: 70.24px;
+  height: 70.24px;
   font-family: "Poppins";
-  background: #FFFFFF;
-box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.15);
-border-radius: 50px;
+  background: #ffffff;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.15);
+  border-radius: 50px;
+  position: relative;
+  top: 110px;
 }
 .getStartedInput input {
   border: none;
   outline: none;
+  font-family: "Poppins";
 }
 .getStartedInput input::placeholder {
   font-family: "Poppins";
   color: rgba(159, 159, 159, 1);
+  text-align: center;
 }
 .getStartedInput .started {
   background: linear-gradient(95.45deg, #2282e2 47.45%, #0b4b8b 93.06%);
   border-radius: 20px;
   padding: 3px 10px 0 15px;
-  width: 100px;
+  width: 170px;
   color: white;
   font-family: "Poppins";
+  font-size: 13px;
   height: 45px;
   border: none;
   cursor: pointer;
@@ -332,25 +330,37 @@ border-radius: 50px;
   margin-top: -45px;
 }
 .arrowdown {
-  /* width: 338px; */
-  height: 266px;
+  height: 145px;
   left: 0;
   background: rgba(196, 196, 196, 0.34);
   padding-right: 18vh;
+  padding-top: 110px;
+}
+.arrowdownBtn {
+  color: #2282e2;
+  margin-top: 110px;
+  font-size: 80px;
+  float: right;
+  cursor: pointer;
 }
 .supportText {
   width: 200px;
+  line-height: 36px;
+  color: #ababab;
+  font-size: 16px;
   margin-left: 70px;
   padding-top: 110px;
 }
-.investorimg {
-  padding-top: 95px;
-  margin: 0 20px;
+.investImg {
+  margin-top: 100px;
+  margin-left: -15vh;
+  height: 110px;
 }
 .greyText {
   font-family: "Poppins";
   color: #ababab;
   font-size: 13px;
+  line-height: 23px;
 }
 .howWework {
   background-image: url("images/horizontalHero.png");
@@ -384,11 +394,13 @@ border-radius: 50px;
 }
 .whiteTitle {
   color: #ffffff;
+  padding-bottom: 40px;
   font-size: 34px;
   display: flex;
   font-family: "Poppins";
- 
+  font-weight: 500;
   justify-content: center;
+  margin-left: -125px;
 }
 .workImg {
   margin-right: 40px;
@@ -409,18 +421,24 @@ border-radius: 50px;
 .transparentButton {
   background-color: transparent;
   color: white;
-  border-radius: 10px;
+  border-radius: 38px;
   border: 0.767857px solid #ffffff;
   width: 120px;
-  font-size: "Poppins";
+  font-family: "Poppins";
   height: 45px;
 }
-
+.transparentButton:hover {
+  background-color: #000000;
+}
+.getNash {
+  margin-top: 12px;
+}
 .getNash span {
   font-family: "Poppins";
-  font-size: 13px;
+  font-size: 16px;
   color: white;
   margin-right: 10px;
+  font-weight: 400;
 }
 .footerMenu {
   /* padding: 0 180px; */
@@ -444,7 +462,8 @@ border-radius: 50px;
   cursor: pointer;
 }
 .footerMenulist img {
-  height: 40px;
+  height: 42px;
+  width: 118px;
   margin-bottom: 15px;
 }
 
@@ -488,11 +507,11 @@ border-radius: 50px;
 
 .globeImg {
   width: 100%;
- 
 }
 .platformText {
   width: 90%;
   display: block;
+  margin-left: 50px;
 }
 .bluetitle {
   background-color: #2282e2;
@@ -509,7 +528,7 @@ border-radius: 50px;
 }
 .bluetitle span {
   line-height: 23px;
-  font-weight: 600;
+  font-weight: 500;
 }
 .blacktitle {
   font-size: 24px;
@@ -519,10 +538,10 @@ border-radius: 50px;
   margin: 20px 0;
 }
 .blacktitle2 {
-  font-size: 40px;
-  font-weight: 900;
+  font-size: 38px;
+  font-weight: 700;
   font-family: "Poppins";
-  /* width: 365px; */
+  width: 422px;
   margin: 20px 0;
 }
 .panelItem {
@@ -577,12 +596,12 @@ border-radius: 50px;
 .panelItem p {
   margin-top: 12px;
   font-size: 13px;
-  color: black;
+  color: #4f4f4f;
   max-width: 450px;
 }
 .dashImg {
   margin-left: -60px;
-  margin-top:180px;
+  margin-top: 180px;
 }
 
 .dashImg img {
@@ -600,20 +619,41 @@ border-radius: 50px;
 }
 .blueBg {
   background-color: #d5ebff;
+  margin-left: -35px;
   border-radius: 50%;
+  border: 6px solid #ffffff;
   width: 60px;
   height: 60px;
   align-items: center;
   display: flex;
   justify-content: center;
+  box-shadow: 0px 13.7262px 22.8769px rgba(0, 0, 0, 0.1);
+}
+.blueBg2 {
+  width: 53.99px;
+  height: 53.99px;
+  left: 1035.76px;
+  margin-top: -44px;
+  background: #8bc7ff;
+  border: 4.57539px solid #ffffff;
+  box-shadow: 0px 3.66031px 3.66031px rgba(0, 0, 0, 0.05);
+  border-radius: 45.7539px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  box-shadow: 0px 13.7262px 22.8769px rgba(0, 0, 0, 0.1);
 }
 .footerDiv {
   width: 100%;
   display: flex;
   justify-content: center;
   position: relative;
-  top: -90px
+  top: -90px;
 }
+.papers {
+  margin-top: 25px;
+}
+
 .controlMoney section {
   position: relative;
   top: -820px;
@@ -649,7 +689,7 @@ border-radius: 50px;
 .cardTitle {
   font-size: 16px;
   font-weight: 700;
-  line-height: 16.5px;
+  line-height: 23px;
   color: #000000;
 }
 .cardSubtitle {
@@ -660,10 +700,15 @@ border-radius: 50px;
 .contentTexts {
   font-size: 13px;
   font-family: "Poppins";
-  color: #ababab;
+  color: #c4c4c4;
 }
+.smallerTexts {
+  margin-top: 35px;
+  width: 350px;
+}
+
 .smallerTexts .blackTexts {
-  font-weight: 800;
+  font-weight: 500;
   line-height: 30px;
   font-size: 20px;
   font-family: "Poppins";
@@ -671,9 +716,10 @@ border-radius: 50px;
 .smallerTexts .greyTexts {
   display: block;
   line-height: 30px;
-  font-size: 18px;
+  font-size: 15px;
+  font-weight: 400;
   color: #aaaaaa;
-  margin-top: 60px;
+  margin-top: 35px;
   font-family: "Poppins";
 }
 .tabSection {
@@ -719,6 +765,10 @@ border-radius: 50px;
   height: 100%;
   background: #e9f4ff;
 }
+.cardsStr8 {
+  height: 415px;
+  margin-top: -186px;
+}
 .cardReady-content {
   /* position: relative;
   display: flex;
@@ -728,7 +778,6 @@ border-radius: 50px;
   height: inherit;
   background: linear-gradient(180deg, #006ad1 0%, rgba(255, 255, 255, 0) 100%);
   border-radius: 31px;
-  
 }
 .cardReady-content .left {
   width: 50%;
@@ -740,7 +789,6 @@ border-radius: 50px;
   margin: 0 25px 0 58px;
 }
 .cardReadytexts .smallerTexts {
-  width: 310px;
   font-family: "Poppins";
 }
 .signupForm-container {
@@ -751,11 +799,10 @@ border-radius: 50px;
   width: 475px;
   height: 496px;
   background: #ffffff;
- 
 }
 .formInput {
-  background: #efefef;
-  border: 0.3px solid #949494;
+  background: #EFEFEF;
+border: 0.3px solid #949494;
   box-sizing: border-box;
   border-radius: 10px;
   color: #252525;
@@ -847,14 +894,15 @@ border-radius: 50px;
   line-height: 2em;
 }
 .ModalPaper {
-  width: 800px;
-  height: 615px;
+  width: 1250px;
+  height: 630px;
   flex-grow: 0;
   margin: 0 auto;
-  padding: 10px 40px 10px 40px;
-  border-radius: 5px;
+  padding: 10px 40px 10px 60px;
+  border-radius: 20px;
   box-shadow: 0 11px 35px 15px rgb(0 0 0 / 2%);
   background-color: #ffffff;
+  overflow-y: auto;
 }
 .BackButton {
   display: flex;
@@ -963,6 +1011,7 @@ border-radius: 50px;
   font-family: "Poppins";
 }
 .flexedInput {
+  height: 72px;
   width: 45%;
   margin-right: 10px;
   background: #efefef;
@@ -976,6 +1025,7 @@ border-radius: 50px;
   padding: 13px;
   font-family: "Poppins";
   outline: none;
+  margin-bottom: 15px;
 }
 .flexedInput::placeholder {
   color: #000000;
@@ -989,7 +1039,7 @@ border-radius: 50px;
   outline: none;
 }
 .FilterSelect {
-  height: 50px !important;
+  height: 72px !important;
   outline: none;
   width: 100%;
   box-sizing: border-box;
@@ -1001,6 +1051,7 @@ border-radius: 50px;
   font-size: 14px;
   color: #000000;
   padding: 13px;
+  margin-bottom: 15px;
 }
 
 @media only screen and (max-width: 720px) {
@@ -1008,14 +1059,14 @@ border-radius: 50px;
     padding-left: 15px;
     display: flex;
     border-radius: 0;
-    height: 790px;
+    height: 890px;
   }
   .titleTexts {
-    margin: 10px;
+    margin: 10px !important;
     width: 350px;
     padding-left: 8px;
-    
   }
+
   .topbar {
     left: 0;
   }
@@ -1024,28 +1075,33 @@ border-radius: 50px;
     margin-top: 100px;
     position: unset;
   }
-  
- 
-  .spiralBg, .cardsImg1 {
+
+  .spiralBg,
+  .cardsImg1 {
     display: none;
   }
-  .globeImg  {
+  .globeImg {
     width: 100% !important;
   }
 
   .supportText {
     width: auto;
+    padding-top: 70px;
   }
   .investImg {
-    margin-left: 0;
-    height: 90px;
+    margin-left: 10px;
+    height: 55px;
+    margin-top: 50px;
   }
   .platformDiv {
     border-radius: 0;
   }
   .platformText {
     width: 100%;
-    padding-left: 20px;
+  }
+  .arrowdown {
+    height: 115px;
+    padding-top: 55px;
   }
   .arrowdownBtn {
     color: #2282e2;
@@ -1054,25 +1110,58 @@ border-radius: 50px;
     font-size: 100px;
     width: 310px;
   }
+  .dashImg {
+    margin-left: -40px;
+    margin-top: 150px;
+  }
+  .dashImg img {
+    height: 300px;
+    margin-top: -100px;
+  }
+  .blacktitle2 {
+    font-size: 36px;
+    width: auto;
+  }
+  .leftPadding {
+    padding-left: 15px;
+  }
+  .leftPadding2 {
+    padding-left: 55px;
+  }
+  .leftPadding2 {
+    padding-left: 30px;
+  }
   .anotherlist {
     width: 100%;
     margin-top: 0;
     margin-bottom: 48px;
   }
   .cardsStr8 {
-    height: 250px;
+    height: 300px;
   }
   .Investors {
     margin-top: 0;
   }
+  .footerDiv {
+    top: 20px;
+    display: block;
+    margin-left: -30px;
+  }
+  .papers {
+    max-width: 266px;
+  }
   .controlMoney {
-    height: 1520px;
+    height: 1850px;
+    border-radius: 0;
   }
   .controlMoney section {
-    top: -1520px;
+    top: -1850px;
     /* padding: 0 20px 0 20px; */
   }
-
+  .whiteTitle {
+    margin-left: -25px;
+    justify-content: left;
+  }
   .gridBg {
     padding: 50px;
   }
@@ -1093,21 +1182,14 @@ border-radius: 50px;
     width: 250px;
   }
   .getStartedInput {
-    width: 100%;
+    width: 345px;
+    margin-left: 5px;
   }
-  /* .getStartedInput .mobileGroup{
-    display: flex;
-  background-color: white;
-  border-radius: 25px;
-  height: 55px;
-  align-items: center;
-  justify-content: space-between;
-  padding: 2px 12px;
-  font-family: "Poppins";
-  } */
-
+  .getStartedInput .started {
+    width: 115px;
+  }
   .platformText {
-    margin-bottom: 30px;
+    margin-bottom: 38px;
   }
   .footerRights {
     margin: 0 auto;
@@ -1119,8 +1201,7 @@ border-radius: 50px;
     margin: 0 12px;
   }
   .getNash {
-    display: flex;
-    margin-top: 20px;
+    margin: 20px;
   }
   .footerIcons {
     justify-content: center;
@@ -1133,6 +1214,7 @@ border-radius: 50px;
     margin-right: 10px;
     font-family: "Poppins";
     top: 185px;
+    width: auto;
     position: relative;
   }
 
@@ -1142,10 +1224,19 @@ border-radius: 50px;
   }
   .getStartedInput {
     top: 210px;
-    position: relative;
+  }
+  .getStartedInput .input {
+    text-align: center;
   }
   .footerIcons img {
     height: 24px;
+  }
+  .cardReadytexts .blacktitle2 {
+    width: 300px;
+  }
+  .formInput,
+  .displayFlexSpace {
+    width: 100%;
   }
 
   .cardReady-content {
@@ -1163,9 +1254,70 @@ border-radius: 50px;
   }
   .cardReady {
     height: auto;
-    padding-top: 150px;
+  }
+  .transparentButton {
+    margin-left: 10px;
   }
   .signupForm-container {
-    width: auto;
+    width: 339px;
+  }
+  .ModalPaper {
+    width: 300px;
+    height: 550px;
+    overflow-y: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  .ModalHeader .MainContentHeader {
+    line-height: 2rem;
+  }
+  .flexedInput {
+    width: 100%;
+  }
+  .displayFlexSpace1 {
+    display: block;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .LandingPageSubHeader {
+    width: 315px;
+  }
+  .getStartedInput {
+    width: 315px;
+  }
+  .getStartedInput .started {
+    width: 100%;
+    margin: 0;
+  }
+  .signupForm-container {
+    width: 300px;
+    padding: 40px 30px 0 35px;
+  }
+  .smallerTexts {
+    width: 300px;
+  }
+  .leftPadding2 {
+    padding-left: 20px;
+  }
+  .panelItem .blueBg {
+    width: 100px;
+    height: 50px;
+  }
+  .anotherlist {
+    height: auto;
+  }
+  .howWework {
+    padding-left: 18px;
+  }
+  .whiteTitle {
+    margin-left: -3px;
+    justify-content: left;
+    font-size: 30px;
+  }
+  .cardReadytexts {
+    margin: 0 25px 0 35px;
+  }
+  .investImg {
+    height: 48px;
   }
 }

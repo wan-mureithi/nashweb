@@ -4,18 +4,15 @@ import {
   createMuiTheme,
   MuiThemeProvider,
   Hidden,
-  Drawer,
 } from "@material-ui/core";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
+import Avatar from '@material-ui/core/Avatar';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 import { withRouter } from "react-router-dom";
 import { Link } from "react-scroll";
-import SignupModal from "../SignupModal";
-import AOS from "aos";
-import "aos/dist/aos.css";
+
 
 const stylesIndex = (theme) => ({
   root: {
@@ -101,7 +98,7 @@ const themeAppBar = createMuiTheme({
   },
 });
 
-class Menubar extends Component {
+class TopBar extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -120,9 +117,7 @@ class Menubar extends Component {
   }
   componentDidMount() {
     this.setState({ isChecked: true });
-    AOS.init({
-      duration: 2000,
-    });
+   
   }
   handleChange(menuItem) {
     this.setState({ menu: menuItem });
@@ -144,14 +139,6 @@ class Menubar extends Component {
     }
   };
 
-  handleSelectedMenu(index) {
-    this.setState({ menu: this.state.landingPageMenu[index].id });
-    localStorage.setItem(
-      "landingPageMenu",
-      this.state.landingPageMenu[index].id
-    );
-    this.props.history.push(this.state.landingPageMenu[index].path);
-  }
 
   render() {
     const { classes } = this.props;
@@ -184,77 +171,9 @@ class Menubar extends Component {
                 </Link>
               </div>
 
-              <Hidden smUp implementation="css">
-                <IconButton
-                  edge={false}
-                  onClick={() => this.handleDrawerToggle()}
-                  className={classes.menuButton}
-                  style={{ color: "#000000" }}
-                  aria-label="menu"
-                >
-                  <MenuIcon />
-                </IconButton>
-                <Drawer
-                  variant="temporary"
-                  anchor="right"
-                  open={this.state.mobileOpen}
-                  onClick={() => this.handleDrawerToggle()}
-                  ModalProps={{
-                    keepMounted: true,
-                  }}
-                >
-                  {this.state.landingPageMenu.map((menu, index) => (
-                    <Button
-                      color="inherit"
-                      key={index}
-                      className={
-                        this.state.menu === menu.id
-                          ? "LandingPageSelected"
-                          : "landingPageButton"
-                      }
-                      onClick={() => this.handleSelectedMenu(index)}
-                    >
-                      {menu.label}
-                    </Button>
-                  ))}
-
-                  <Link
-                    activeClass="active"
-                    to="cardReady"
-                    spy={true}
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                  >
-                    <button
-                      className="SignUpFormsSubmit"
-                      style={{ width: "120px", marginTop: "20px" }}
-                      // onClick={()=>this.handleOpen()}
-                    >
-                      Get Nash
-                    </button>
-                  </Link>
-                </Drawer>
-              </Hidden>
+              
               <Hidden xsDown>
-                <Link
-                  activeClass="active"
-                  className="landingPageButton"
-                  to="header-container"
-                  spy={true}
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                >
-                  <Button
-                    color="inherit"
-                    className="landingPageButton"
-                    component="button"
-                    style={{ marginRight: "40px" }}
-                  >
-                    Why Nash
-                  </Button>
-                </Link>
+                
                 <Link
                   activeClass="active"
                   className="landingPageButton"
@@ -270,7 +189,7 @@ class Menubar extends Component {
                     component="button"
                     style={{ marginRight: "40px" }}
                   >
-                    Features
+                    Help
                   </Button>
                 </Link>
 
@@ -282,7 +201,7 @@ class Menubar extends Component {
                   offset={50}
                   duration={500}
                 >
-                  <button
+                  {/* <button
                     className="SignUpFormsSubmit"
                     style={{
                       marginBottom: "0px",
@@ -291,14 +210,19 @@ class Menubar extends Component {
                     }}
                   >
                     Get Nash
-                  </button>
+                  </button> */}
+                  <div style={{
+                      marginBottom: "0px",
+                      width: "155px",
+                      marginRight: "10%",
+                    }} className="avatarDiv">
+                  <span>  Someone   </span> 
+                    <Avatar style={{ width:'30px',height:'30px'}}> <AccountCircleIcon/> </Avatar>
+                  </div>
                 </Link>
               </Hidden>
             </Toolbar>
-            <SignupModal
-              handleOpen={this.handleOpen}
-              setOpen={this.state.setOpen}
-            />
+            
           </AppBar>
         </MuiThemeProvider>
       </div>
@@ -306,4 +230,4 @@ class Menubar extends Component {
   }
 }
 
-export default withRouter(withStyles(stylesIndex)(Menubar));
+export default withRouter(withStyles(stylesIndex)(TopBar));

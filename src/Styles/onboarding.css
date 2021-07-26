@@ -1,0 +1,348 @@
+.verifyEmail {
+  background-color: #e9f4ff;
+  position: absolute;
+  width: 100%;
+  height: 1024px;
+  left: 0px;
+  top: 0px;
+}
+.verify__background {
+  background-image: url("images/bigGrid.png");
+  background-repeat: repeat-x;
+  position: absolute;
+  width: inherit;
+  height: 400px;
+  top: 0;
+}
+.verify__container {
+  width: 800px;
+  height: 518px;
+  margin: 0 auto;
+  top: 246px;
+  position: relative;
+  background: #ffffff;
+  box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.15);
+  border-radius: 15px;
+  text-align: center;
+}
+.content__header {
+  width: 550px;
+  margin: 0 auto;
+  padding-top: 30px;
+}
+.sometxt {
+  font-size: 18px;
+  line-height: 36px;
+  font-weight: 500;
+}
+.title {
+  font-size: 36px;
+  line-height: 50px;
+  font-weight: 600;
+}
+.content__footer {
+  background: rgba(203, 203, 203, 0.09);
+  border-radius: 0px 0px 15px 15px;
+  height: 163px;
+  padding-top: 30px;
+}
+.content__footer > hr {
+  width: 520px;
+  border: 0.3px solid #b8b8b8;
+  margin: 25px auto;
+}
+.content__footer > p {
+  font-size: 12px;
+}
+.resend {
+  display: flex;
+  width: 500px;
+  margin: 0 auto;
+  justify-content: center;
+}
+.resend > p {
+  font-size: 13px;
+  color: #949494;
+  margin-right: 20px;
+}
+.descText {
+  font-weight: normal;
+  font-size: 11px;
+  color: #afafaf;
+}
+.form__footer {
+  display: flex;
+  padding-top: 42px;
+  margin-top: 30px;
+  background: #fafafa;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.05);
+  border-radius: 0px 0px 15px 15px;
+  width: inherit;
+  height: 100px;
+  justify-content: space-evenly;
+}
+.form__button {
+  width: 180px;
+  height: 58.43px;
+  background: #000000;
+  border-radius: 30px;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-around;
+  font-family: "Poppins";
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+.blueForm__button {
+  width: 250px;
+  height: 58px;
+  background: #3297f4;
+  border-radius: 30px;
+  display: flex;
+  color: white;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 16px;
+  border: none;
+  font-family: "Poppins";
+  cursor: pointer;
+}
+.pageHeader {
+  width: 100%;
+  height: 400px;
+  position: absolute;
+  text-align: center;
+  background-color: #e9f4ff;
+}
+.pageContent {
+  background: #f3f3f3;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  top: 400px;
+}
+.DisplayFlexSpace {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  /* font-family: "Avenir LT Pro 55 Roman"; */
+}
+.Stepper {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  height: 0.5em;
+  width: 0.5em;
+  border-radius: 50%;
+  margin-right: 4px;
+  margin-left: 4px;
+  background: #e5e5e5;
+}
+.checkDot {
+  color: white;
+  height: 30px;
+  width: 30px;
+}
+
+.line {
+  width: 3em;
+  height: 0.1em;
+  border-bottom: 2px dashed #626262;
+}
+.onboardForm {
+  width: 900px;
+  height: 715px;
+  position: relative;
+  background-color: white;
+  margin: 0 auto;
+  top: -86px;
+  box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  padding: 67px 66px 10px 90px;
+}
+.subtitle {
+  text-align: left;
+}
+.onboardForm > input {
+  background: #efefef;
+  border: 0.3px solid #949494;
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: #252525;
+  text-align: left;
+  height: 64px;
+  font-size: 14px;
+  opacity: 1;
+  padding: 10px 25px;
+  font-family: "Poppins";
+  outline: none;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.onboardForm > input ::placeholder {
+  color: #000000;
+  font-family: "Poppins";
+}
+.onboardForm > h3 {
+  font-size: 25px;
+  font-weight: 700;
+  text-align: left;
+}
+
+.onboardForm > textarea {
+  background: #efefef;
+  border: 0.3px solid #949494;
+  box-sizing: border-box;
+  border-radius: 10px;
+  color: #252525;
+  text-align: left;
+  font-size: 14px;
+  opacity: 1;
+  padding: 10px 25px;
+  font-family: "Poppins";
+  outline: none;
+  width: 100%;
+  margin-bottom: 20px;
+  margin-top: 10px;
+}
+.onboardForm > textarea::placeholder {
+  color: #000000;
+  font-family: "Poppins";
+}
+.displayFlexOnboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+.displayFlexOnboard input {
+  width: 45%;
+  background: #efefef;
+  border: 0.3px solid #949494;
+  box-sizing: border-box;
+  color: #252525;
+  border-radius: 8px;
+  text-align: left;
+  font-size: 14px;
+  opacity: 1;
+  height: 64px;
+  padding: 10px 25px;
+}
+.formButtons {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+.myInfo {
+  display: flex;
+  background: #efefef;
+  border: 0.3px solid #949494;
+  width: 100%;
+  padding: 13px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  margin-bottom: 50px;
+  height: 64px;
+  align-items: center;
+}
+.myInfo > span {
+  font-size: 16px;
+  color: #454545;
+}
+.companyOwnerDiv {
+  background: #eeeeee;
+  border: 1px solid #c5c5c5;
+  box-sizing: border-box;
+  border-radius: 10px;
+  height: 114px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+.companyOwnerDiv .dot {
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  background: rgba(50, 151, 244, 0.55);
+  content: none;
+  margin-left: 16px;
+  margin-right: 20px;
+}
+
+.addNewOwnerDiv {
+  background: rgba(50, 151, 244, 0.09);
+  border: 2px dashed #3297f4;
+  box-sizing: border-box;
+  border-radius: 10px;
+  height: 114px;
+  display: flex;
+  align-items: center;
+}
+
+.onboardForm hr {
+  width: 100%;
+  margin: 60px auto;
+}
+.details > p {
+  color: #454545;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.details > div {
+  background: #d9d9d9;
+  height: 12px;
+  width: 160px;
+  margin-bottom: 12px;
+  content: none;
+}
+.plainButton {
+  cursor: pointer;
+  background: none;
+  outline: none;
+  border: none;
+  width: 100%;
+}
+.bankMenus {
+  display: flex;
+}
+.bankDiv {
+  width: 249px;
+  height: 163px;
+  background: #e1f1ff;
+  border-radius: 10px;
+  margin: 30px auto;
+  text-align: center;
+  padding-top: 16px;
+  cursor: pointer;
+}
+.bankDiv > p {
+  color: #3297f4;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 29px;
+  mix-blend-mode: normal;
+}
+.disclaimerText {
+  font-size: 11px;
+  font-weight: 400;
+  text-align: center;
+  color: #828282;
+  padding: 10px 40px;
+  margin-bottom: 30px;
+}
+.listItem {
+  border: "0.3px solid #070707";
+    box-sizing: "borderBox";
+    border-radius:"10px";
+    padding: 10px;
+}

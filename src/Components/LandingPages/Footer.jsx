@@ -1,32 +1,12 @@
 import React, { Component } from "react";
 import { Grid, Hidden,Divider } from "@material-ui/core";
+import { Link } from "react-scroll";
 
 class LandingPageFooter extends Component {
   constructor() {
     super();
     this.state = {
-      companyMenu: [
-        { label: "About Us", path: "" },
-        { label: "Blog", path: "" },
-        { label: "Media kit", path: "" },
-        { label: "Contact Us", path: "" },
-      ],
-      solutionsMenu: [
-        { label: "Another", path: "" },
-        { label: "Something", path: "" },
-        { label: "Business partners", path: "" },
-        { label: "SOmething", path: "" },
-      ],
-      legalMenu: [
-        { label: "Cookies Policy", path: "" },
-        { label: "Privacy & security policy", path: "" },
-        { label: "Terms of service", path: "" },
-        { label: "Law Enforcement", path: "" },
-      ],
-      resourcesMenu: [
-        { label: "Investments", path: "" },
-        { label: "Something else", path: "" },
-      ],
+     
       icons: [
         { src: "/icon/Instagram.svg", path: "", label: "IG" },
         { src: "/icon/Twitter.svg", path: "", label: "Twitter" },
@@ -46,7 +26,7 @@ class LandingPageFooter extends Component {
               xs={12}
               sm={12}
               md={6}
-              lg={6}
+              lg={4}
             >
               <img
                 style={{ height: "40px" }}
@@ -60,14 +40,27 @@ class LandingPageFooter extends Component {
                   Expense Management. Payment Flows Management. Approvals &
                   Controls
                 </span>
-                <button className="transparentButton">Get Nash</button>
+               
               </div>
+            </Grid>
+            <Grid item xs={12} sm={12} md={6} lg={2}>
+           
+            <Link
+                  activeClass="active"
+                  to="cardReady"
+                  spy={true}
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                >
+               <button className="transparentButton">Get Nash</button>
+                </Link>
             </Grid>
           </Grid>
         </div>
         <Hidden mdDown>
         <Divider light style={{ backgroundColor: "rgba(255, 255, 255, 0.75)",marginTop:'45px',height:'0.3px',marginLeft:'66px',
-      width:'92%' }} />
+      width:'92%',opacity:'0.3' }} />
         </Hidden>
         <div className="footerMenu">
           <Grid container spacing={2}>
@@ -108,10 +101,43 @@ class LandingPageFooter extends Component {
 
               <div className="footerMenulist">
                 <div style={{ marginBottom: "20px" }}>
-                  <span className="LandingPageWhiteText">Why us</span>
+                <Link
+                  activeClass="active"
+                  to="header-container"
+                  spy={true}
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                >
+                   <span className="LandingPageWhiteText">Why Nash</span>
+                </Link>
+                 
                 </div>
                 <div style={{ marginBottom: "20px" }}>
+                <Link
+                  activeClass="active"
+                  to="controlMoney"
+                  spy={true}
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                >
+                    <span className="LandingPageWhiteText">About us</span>
+                </Link>
+                 
+                </div>
+                <div style={{ marginBottom: "20px" }}>
+                <Link
+                  activeClass="active"
+                  to="controlMoney"
+                  spy={true}
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                >
                   <span className="LandingPageWhiteText">Features</span>
+                </Link>
+                 
                 </div>
               </div>
             </Grid>
@@ -152,7 +178,7 @@ class LandingPageFooter extends Component {
         <div className="footerRights">
           <Hidden mdDown>
           <Divider light style={{ backgroundColor: "rgba(255, 255, 255, 0.75)",marginBottom:'40px',height:'0.3px',marginLeft:'66px',
-      width:'92%' }} />
+      width:'92%',opacity:'0.3' }} />
           </Hidden>
           <Grid container>
             <Grid

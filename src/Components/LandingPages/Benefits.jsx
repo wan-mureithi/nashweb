@@ -36,20 +36,9 @@ export default class Benefits extends Component {
               <div className="anotherlist">
                 <div className="prosList">
                   <div className="panelItem">
-                    <div
-                      style={{
-                        marginLeft: "-25px",
-                        width: "50px",
-                        height: "50px",
-                      }}
-                      className="whiteBg"
-                    >
+                    
                       <div
-                        style={{
-                          backgroundColor: "rgba(212, 235, 255, 1)",
-                          width: "50px",
-                          height: "50px",
-                        }}
+                        
                         className="blueBg"
                       >
                         <img
@@ -58,7 +47,7 @@ export default class Benefits extends Component {
                           alt=""
                         />
                       </div>
-                    </div>
+                   
                     <div style={{ paddingLeft: "20px" }}>
                       <span>Save money</span>
 
@@ -70,20 +59,9 @@ export default class Benefits extends Component {
                     </div>
                   </div>
                   <div className="panelItem">
-                    <div
-                      style={{
-                        marginLeft: "-25px",
-                        width: "50px",
-                        height: "50px",
-                      }}
-                      className="whiteBg"
-                    >
+                    
                       <div
-                        style={{
-                          backgroundColor: "rgba(212, 235, 255, 1)",
-                          width: "50px",
-                          height: "50px",
-                        }}
+                        
                         className="blueBg"
                       >
                       <img
@@ -92,7 +70,7 @@ export default class Benefits extends Component {
                           alt=""
                         />
                       </div>
-                    </div>
+                   
                     <div style={{ paddingLeft: "20px" }}>
                       <span>Save time</span>
 
@@ -105,20 +83,9 @@ export default class Benefits extends Component {
                     </div>
                   </div>
                   <div className="panelItem">
-                    <div
-                      style={{
-                        marginLeft: "-25px",
-                        width: "50px",
-                        height: "50px",
-                      }}
-                      className="whiteBg"
-                    >
+                    
                       <div
-                        style={{
-                          backgroundColor: "rgba(212, 235, 255, 1)",
-                          width: "50px",
-                          height: "50px",
-                        }}
+                        
                         className="blueBg"
                       >
                         <img
@@ -127,7 +94,7 @@ export default class Benefits extends Component {
                           alt=""
                         />
                       </div>
-                    </div>
+                  
                     <div style={{ paddingLeft: "20px" }}>
                       <span>Save effort</span>
 
@@ -150,9 +117,10 @@ export default class Benefits extends Component {
         </div>
 
         <div className="footerDiv">
-          <p style={{ fontSize: "18px", fontWeight: "600", color: "#000000" }}>
+          <p style={{ fontSize: "18px", fontWeight: "500", color: "#000000" }}>
             Get it on Appstore/Playstore
           </p>
+          <div style={{ display: "flex" }}>
           <div>
             {" "}
             <img
@@ -168,6 +136,8 @@ export default class Benefits extends Component {
               alt=""
             />
           </div>
+          </div>
+          
         </div>
       </div>
     );

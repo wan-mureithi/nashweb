@@ -10,7 +10,8 @@ export default class SignUp extends Component {
       lastName: "",
       email: "",
       phoneNumber:"",
-      setOpen: false
+      setOpen: false,
+      signupData: null
     };
     this.handleOpen = this.handleOpen.bind(this);
     this.handleFormInput = this.handleFormInput.bind(this);
@@ -25,13 +26,22 @@ export default class SignUp extends Component {
     }
     this.setState({ [event.target.id]: event.target.value });
   }
+  handleNext(){
+    var payload = {
+      firstName: this.state.firstName,
+      lastName: this.state.lastName,
+      workEmail: this.state.email,
+      phoneNumber: this.state.phoneNumber
+    }
+    this.setState({ signupData: payload});
+  }
 
 
   render() {
     return (
       <div>
-        <div className="signupForm-container">
-          <div className="signupForm-content">
+        <div id="signupForm-container" className="signupForm-container">
+          <div id="signupForm-content" className="signupForm-content">
             <div className="displayFlexSpace">
               <input
                 id="firstName"
@@ -79,7 +89,7 @@ export default class SignUp extends Component {
             </div>
           </div>
         </div>
-        <SignupModal handleOpen={this.handleOpen} setOpen={this.state.setOpen}/>
+        <SignupModal handleOpen={this.handleOpen} setOpen={this.state.setOpen} userData={this.state.userData}/>
       </div>
     );
   }
