@@ -16,9 +16,8 @@ import { Link } from "react-scroll";
 import SignupModal from "../SignupModal";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import jwtDecode from "jwt-decode";
-import Avatar from '@material-ui/core/Avatar';
-import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+//import Avatar from '@material-ui/core/Avatar';
+//import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const stylesIndex = (theme) => ({
   root: {
@@ -104,7 +103,7 @@ const themeAppBar = createTheme({
   },
 });
 
-class Menubar extends Component {
+class TopbarMain extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -116,7 +115,6 @@ class Menubar extends Component {
         { id: "Features", label: "Features" },
       ],
       menu: localStorage.getItem("landingPageMenu") || "",
-      username: "",
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -127,12 +125,6 @@ class Menubar extends Component {
     AOS.init({
       duration: 2000,
     });
-    let token = localStorage.getItem("ac_tkn");
-    if(token){
-      let userData = jwtDecode(token);
-    this.setState({ username: userData.firstname });
-    }
-    
   }
   handleChange(menuItem) {
     this.setState({ menu: menuItem });
@@ -172,18 +164,11 @@ class Menubar extends Component {
           <AppBar position="fixed">
             <Toolbar className={classes.toolbar}>
               <div className="DisplayFlex1" style={{ flexGrow: 1 }}>
-                <Link
-                  activeClass="active"
-                  className="landingPageButton"
-                  to="header-container"
-                  spy={true}
-                  smooth={true}
-                  offset={50}
-                  duration={500}
-                >
+                
                   <img
                     alt="nash"
                     src="./assets/img/logo.svg"
+                    onClick={()=>this.props.history.push("/")}
                     style={{
                       marginLeft: "15%",
                       cursor: "pointer",
@@ -191,7 +176,7 @@ class Menubar extends Component {
                       width: "124px",
                     }}
                   />
-                </Link>
+               
               </div>
 
               <Hidden smUp implementation="css">
@@ -228,41 +213,14 @@ class Menubar extends Component {
                     </Button>
                   ))}
 
-                  <Link
-                    activeClass="active"
-                    to="cardReady"
-                    spy={true}
-                    smooth={true}
-                    offset={50}
-                    duration={500}
-                  >
-                    {this.state.username !== '' ? (
-                    <div
-                    style={{
-                      marginBottom: "0px",
-                      width: "155px",
-                      marginRight: "10%",
-                    }}
-                    className="avatarDiv"
-                  >
-                    <span> {this.state.username} </span>
-                    <Avatar style={{ width: "30px", height: "30px" }}>
-                      {" "}
-                      <AccountCircleIcon />{" "}
-                    </Avatar>
-                  </div>
-                    ) : (
-                      <button
+                    <button
                       className="SignUpFormsSubmit"
                       style={{ width: "120px", marginTop: "20px" }}
-                      // onClick={()=>this.handleOpen()}
+                      onClick={()=>this.props.history.push("/")}
                     >
                       Get Nash
                     </button>
-                    )}
-                    
-                    
-                  </Link>
+                 
                 </Drawer>
               </Hidden>
               <Hidden xsDown>
@@ -297,6 +255,7 @@ class Menubar extends Component {
                     color="inherit"
                     className="landingPageButton"
                     component="button"
+                    onClick={()=>this.props.history.push("/")}
                     style={{ marginRight: "40px" }}
                   >
                     Features
@@ -311,34 +270,17 @@ class Menubar extends Component {
                   offset={50}
                   duration={500}
                 >
-                  {this.state.username !== '' ? (
-                    <div
-                    style={{
-                      marginBottom: "0px",
-                      width: "155px",
-                      marginRight: "10%",
-                    }}
-                    className="avatarDiv"
-                  >
-                    <span> {this.state.username} </span>
-                    <Avatar style={{ width: "30px", height: "30px" }}>
-                      {" "}
-                      <AccountCircleIcon />{" "}
-                    </Avatar>
-                  </div>
-                    ) : (
-                      <button
+                  <button
                     className="SignUpFormsSubmit"
                     style={{
                       marginBottom: "0px",
                       width: "150px",
                       marginRight: "10%",
                     }}
+                    onClick={()=>this.props.history.push("/")}
                   >
                     Get Nash
                   </button>
-                    )}
-                  
                 </Link>
               </Hidden>
             </Toolbar>
@@ -353,4 +295,4 @@ class Menubar extends Component {
   }
 }
 
-export default withRouter(withStyles(stylesIndex)(Menubar));
+export default withRouter(withStyles(stylesIndex)(TopbarMain));

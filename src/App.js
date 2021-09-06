@@ -3,34 +3,34 @@ import { Router } from "react-router-dom";
 import { createBrowserHistory } from "history";
 import Routes from "./Routes";
 import "./Styles/App.css";
-import { createMuiTheme } from "@material-ui/core/styles";
+import { createTheme } from "@material-ui/core/styles";
 import { ThemeProvider } from "@material-ui/styles";
 
 const browserHistory = createBrowserHistory();
 
-// const avenir = {
-//   fontFamily: "Avenir LT Pro 55 Roman",
-//   src:
-//     "local('Avenir LT Pro 55 Roman'), url('./fonts/AvenirLTProRoman.woff') format('woff')"
-// };
+const poppins = {
+  fontFamily: "Poppins Regualr 400",
+  src:
+    "https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+};
 
-// const theme = createMuiTheme({
-//   typography: {
-//     fontFamily: "Avenir LT Pro 55 Roman !important"
-//   },
-//   overrides: {
-//     MuiCssBaseline: {
-//       "@global": {
-//         "@font-face": [avenir]
-//       }
-//     },
-//     MuiTypography: {
-//       root: {
-//         fontFamily: "Avenir LT Pro 55 Roman !important"
-//       }
-//     }
-//   }
-// });
+const theme = createTheme({
+  typography: {
+    fontFamily: "Poppins !important"
+  },
+  overrides: {
+    MuiCssBaseline: {
+      "@global": {
+        "@font-face": [poppins]
+      }
+    },
+    MuiTypography: {
+      root: {
+        fontFamily: "Poppins !important"
+      }
+    }
+  }
+});
 
 class App extends Component {
   constructor(props) {
@@ -43,7 +43,7 @@ class App extends Component {
 
   render() {
     return (
-      <ThemeProvider>
+      <ThemeProvider theme={theme}>
          {/* <IdleTimer
           ref={ref => {
             this.idleTimer = ref;
