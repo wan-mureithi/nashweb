@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 /* Landing Pages */
-import LandingPage from "./Views/LandingPage";
+import LandingPage from "../../Views/LandingPage";
 import VerifyEmail from "./Views/VerifyEmail";
 import CreatePassword from "./Views/CreatePassword";
 import MainPage from "./Views/Onboarding/MainPage";
