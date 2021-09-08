@@ -150,10 +150,10 @@ export default class Ownership extends Component {
         view: 0,
         isLoading: false,
       });
-      // setTimeout(function() {
-      //   window.location.reload();
-      // }, 500);
-    this.props.nextStep(3);
+      setTimeout(function() {
+        window.location.reload();
+      }, 500);
+    //this.props.nextStep();
     } catch (error) {
       this.setState({
         isLoading: false,

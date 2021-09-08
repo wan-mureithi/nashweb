@@ -301,14 +301,16 @@ class ScheduleMeeting extends Component {
                         disabled={
                           this.state.firstName !== "" &&
                           this.state.lastName !== "" &&
-                          this.state.email !== ""
+                          this.state.email !== "" && 
+                          this.state.meetingPurpose !== ""
                             ? false
                             : true
                         }
                         className={
                           this.state.firstName !== "" &&
                           this.state.lastName !== "" &&
-                          this.state.email !== ""
+                          this.state.email !== "" && 
+                          this.state.meetingPurpose !== ""
                             ? "SignUpFormsSubmit"
                             : "SignUpFormsSubmitDisabled"
                         }

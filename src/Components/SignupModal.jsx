@@ -7,7 +7,8 @@ import {
   MuiThemeProvider,
   Select,
   MenuItem,
-Input, CircularProgress
+  Input,
+  CircularProgress,
 } from "@material-ui/core";
 import AOS from "aos";
 import "aos/dist/aos.css";
@@ -130,7 +131,7 @@ class SignupModal extends Component {
     this.setState({ setOpen: !this.state.setOpen });
   }
   getCompanySizes() {
-    const url ="Setup/GetCompanySizes";
+    const url = "Setup/GetCompanySizes";
     getRequest(url)
       .then((resp) => {
         let data = resp.data.response_data;
@@ -272,15 +273,22 @@ class SignupModal extends Component {
       countryOfHQId: this.state.selectedRegion,
     };
     //console.log(payload);
-    postRequest(url, payload).then(resp=>{
-      //console.log(resp);
-      this.setState({ isLoading: false})
-      this.props.history.push("/VerifyEmail")
-    }).catch(err=>{
-      console.log(err.response);
-      this.setState({isLoading: false, snackbaropen: true, responseStatus: "failed", snackTitle: "Creation Failed", snackbarmsg:err.response.message });
-    });
-    
+    postRequest(url, payload)
+      .then((resp) => {
+        //console.log(resp);
+        this.setState({ isLoading: false });
+        this.props.history.push("/VerifyEmail");
+      })
+      .catch((err) => {
+        console.log(err.response);
+        this.setState({
+          isLoading: false,
+          snackbaropen: true,
+          responseStatus: "failed",
+          snackTitle: "Creation Failed",
+          snackbarmsg: err.response.data.error,
+        });
+      });
   };
   snackbarClose = () => {
     this.setState({ snackbaropen: false });
@@ -290,7 +298,7 @@ class SignupModal extends Component {
     const { classes } = this.props;
 
     return (
-      <div> 
+      <div>
         <CustomSnackbar
           hideAlert={this.snackbarClose}
           showSnack={this.state.snackbaropen}
@@ -345,7 +353,7 @@ class SignupModal extends Component {
                       placeholder="Name of your business"
                       type="text"
                       className="flexedInput"
-                      value = {this.state.businessName}
+                      value={this.state.businessName}
                       onChange={this.handleFormInput}
                     />
                     <MuiThemeProvider theme={dropdown}>
@@ -376,7 +384,9 @@ class SignupModal extends Component {
                       input={<Input disableUnderline />}
                       MenuProps={MenuProps}
                       onChange={(e) =>
-                        this.setState({ selectedMonthlyExpense: e.target.value })
+                        this.setState({
+                          selectedMonthlyExpense: e.target.value,
+                        })
                       }
                       style={{
                         marginBottom: "35px",
@@ -531,13 +541,13 @@ class SignupModal extends Component {
                     disabled={
                       this.state.businessName !== "" &&
                       this.state.selectedCompanysize !== 0 &&
-                      this.state.selectedCountry !== 0 
+                      this.state.selectedCountry !== 0
                         ? false
                         : true
                     }
                     onClick={() => this.handleSubmit()}
                   >
-                     {this.state.isLoading ? (
+                    {this.state.isLoading ? (
                       <CircularProgress style={{ color: "white" }} size={20} />
                     ) : (
                       "SUBMIT"

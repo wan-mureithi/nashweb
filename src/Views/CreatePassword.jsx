@@ -108,8 +108,14 @@ class CreatePassword extends Component {
       //setTimeout(() => this.props.history.push("/Login"), 1000);
       this.handleLogin();
     } catch (error) {
-      console.log(error)
-      this.setState({ isLoading: false})
+      console.log(error.response)
+      this.setState({
+        isLoading: false,
+        snackbaropen: true,
+        responseStatus: "failed",
+        snackTitle:'Login failed',
+       snackbarmsg: error.response.data.message,
+      });
     }
     
   }
@@ -151,7 +157,7 @@ class CreatePassword extends Component {
       this.setState({ isLoading: false });
       setTimeout(() => this.props.history.push("/Onboarding"), 1000);
     } catch (error) {
-      console.error(error);
+      console.error(error.response);
       this.setState({
               isLoading: false,
               snackbaropen: true,

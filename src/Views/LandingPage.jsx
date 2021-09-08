@@ -161,7 +161,7 @@ class LandingPage extends Component {
                   alt=""
                 />
                 <div className="cardsImg1">
-                  <img src="/assets/img/landing_cards.png" alt="" />
+                  <img src="/assets/good_cards.png" alt="" />
                 </div>
               </Grid>
             </Grid>

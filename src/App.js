@@ -42,6 +42,7 @@ class App extends Component {
   
 
   render() {
+    //console.log(process.env)
     return (
       <ThemeProvider theme={theme}>
          {/* <IdleTimer

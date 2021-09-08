@@ -1,8 +1,13 @@
 import axios from 'axios';
 import { client_secret,client_id } from '../Credentials';
-const BASE_URL = 'http://afbbb93503abe455a8a16c8d73e5bf56-166676973.us-east-2.elb.amazonaws.com/api/';
-const BASE_URL_Identity = 'http://aba8344df27d84302869970ebbd29fef-1413183981.us-east-2.elb.amazonaws.com/api/';
-const token_url = 'http://aba8344df27d84302869970ebbd29fef-1413183981.us-east-2.elb.amazonaws.com/Connect/Token';
+//const BASE_URL = 'http://afbbb93503abe455a8a16c8d73e5bf56-166676973.us-east-2.elb.amazonaws.com/api/';
+//const BASE_URL_Identity = 'http://aba8344df27d84302869970ebbd29fef-1413183981.us-east-2.elb.amazonaws.com/api/';
+//const token_url = 'http://aba8344df27d84302869970ebbd29fef-1413183981.us-east-2.elb.amazonaws.com/Connect/Token';
+const BASE_URL = 'https://nash-treasury.ngrok.io/api/';
+const BASE_URL_Identity = 'https://nash-identity.ngrok.io/api/';
+const token_url = 'https://nash-identity.ngrok.io/Connect/Token';
+
+
 
 //request interceptor to add the auth token header to requests
 axios.interceptors.request.use(
