@@ -13,7 +13,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import { withRouter } from "react-router-dom";
 import { Link } from "react-scroll";
-import SignupModal from "../SignupModal";
+import SignupModal from "../LandingPages/SignupModal";
 import AOS from "aos";
 import "aos/dist/aos.css";
 //import Avatar from '@material-ui/core/Avatar';

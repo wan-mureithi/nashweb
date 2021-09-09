@@ -13,8 +13,8 @@ import {
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { withRouter } from "react-router-dom";
-import { getRequest, postRequest } from "../Services/APIFunctions";
-import CustomSnackbar from "./SharedComponents/CustomSnackbar";
+import { getRequest, postRequest } from "../../Services/APIFunctions";
+import CustomSnackbar from "../SharedComponents/CustomSnackbar";
 
 const stylesModal = (theme) => ({
   modal: {

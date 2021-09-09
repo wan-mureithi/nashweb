@@ -8,12 +8,13 @@ import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import Benefits from "../Components/LandingPages/Benefits";
 import Features from "../Components/LandingPages/Features";
-import SignUp from "../Components/Signup";
+import SignUp from "../Components/LandingPages/Signup";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import EmailIcon from "@material-ui/icons/Email";
 import { animateScroll as scroll } from "react-scroll";
 import { Link } from "react-scroll";
+import { withRouter } from "react-router-dom"; 
 
 const papertheme2 = createTheme({
   overrides: {
@@ -441,4 +442,4 @@ class LandingPage extends Component {
     );
   }
 }
-export default LandingPage;
+export default withRouter(LandingPage);

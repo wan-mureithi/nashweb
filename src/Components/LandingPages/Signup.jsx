@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import SignupModal from "./SignupModal";
-import { validateEmail } from "../Utilities/SharedFunctions";
+import { validateEmail } from "../../Utilities/SharedFunctions";
+//import { withRouter } from "react-router-dom";
 
 class SignUp extends Component {
   constructor() {
