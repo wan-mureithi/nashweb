@@ -8,7 +8,7 @@ import ArrowDownwardIcon from "@material-ui/icons/ArrowDownward";
 import CheckCircleIcon from "@material-ui/icons/CheckCircle";
 import Benefits from "../Components/LandingPages/Benefits";
 import Features from "../Components/LandingPages/Features";
-import SignUp from "../../Components/Signup";
+import SignUp from "../Components/Signup";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import EmailIcon from "@material-ui/icons/Email";

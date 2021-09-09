@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import SignupModal from "./SignupModal";
 import { validateEmail } from "../Utilities/SharedFunctions";
 
-export default class SignUp extends Component {
+class SignUp extends Component {
   constructor() {
     super();
     this.state = {
@@ -149,3 +149,4 @@ export default class SignUp extends Component {
     );
   }
 }
+export default SignUp
