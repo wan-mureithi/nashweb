@@ -6,9 +6,9 @@ import { client_id,client_secret } from '../Credentials';
 // const BASE_URL_Identity = 'http://a89e66d52d7394525a919784031d4a1f-1301078880.us-east-2.elb.amazonaws.com/api/';
 // const token_url = 'http://a89e66d52d7394525a919784031d4a1f-1301078880.us-east-2.elb.amazonaws.com/Connect/Token';
 
-const BASE_URL = 'https://nash-treasury.ngrok.io/api/';
-const BASE_URL_Identity = 'https://nash-identity.ngrok.io/api/';
-const token_url = 'https://nash-identity.ngrok.io/Connect/Token';
+const BASE_URL = 'http://treasuryapi.ngrok.io/api/';
+const BASE_URL_Identity = 'http://nash-eq-identity.ngrok.io/api/';
+const token_url = 'http://nash-eq-identity.ngrok.io/Connect/Token';
 
 
 
