@@ -292,8 +292,8 @@ class SignupModal extends Component {
       this.setState({ isLoading: false})
       this.props.history.push("/VerifyEmail")
     }).catch(err=>{
-    
-      this.setState({isLoading: false, snackbaropen: true, responseStatus: "failed", snackTitle: "Creation Failed", snackbarmsg:err.response.message });
+    console.log(err.response)
+      this.setState({isLoading: false, snackbaropen: true, responseStatus: "failed", snackTitle: "Creation Failed", snackbarmsg:err.response.data.message });
     });
     
   };

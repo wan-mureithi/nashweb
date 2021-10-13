@@ -53,7 +53,7 @@ export default class SignUp extends Component {
   }
 
   render() {
-    console.log(this.state.validworkEmail);
+    
     return (
       <div>
         <div id="signupForm-container" className="signupForm-container">
