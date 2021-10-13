@@ -42,18 +42,9 @@ class App extends Component {
   
 
   render() {
-    //console.log(process.env)
     return (
       <ThemeProvider theme={theme}>
-         {/* <IdleTimer
-          ref={ref => {
-            this.idleTimer = ref;
-          }}
-          timeout={1000 * 60 * 15}
-          onActive={this.handleOnActive}
-          onIdle={this.handleOnIdle}
-          debounce={250}
-        />  */}
+        
         <Router history={browserHistory}>
           <Routes />
         </Router>

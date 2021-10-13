@@ -7,14 +7,13 @@ import {
   MuiThemeProvider,
   Select,
   MenuItem,
-  Input,
-  CircularProgress,
+Input, CircularProgress
 } from "@material-ui/core";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { withRouter } from "react-router-dom";
-import { getRequest, postRequest } from "../../Services/APIFunctions";
-import CustomSnackbar from "../SharedComponents/CustomSnackbar";
+import { getRequest, postRequest } from "../Services/APIFunctions";
+import CustomSnackbar from "./SharedComponents/CustomSnackbar";
 
 const stylesModal = (theme) => ({
   modal: {
@@ -90,19 +89,20 @@ class SignupModal extends Component {
       validEmail: false,
       success: false,
       isLoading: false,
+      businessName:"",
       setOpen: false,
-      selectedCompanysize: 0,
+      selectedCompanysize: "a37dff58",
       companySizes: [],
-      selectedMonthlyExpense: 0,
+      selectedMonthlyExpense: "a37dff58",
       monthlyExpenses: [],
-      selectedCurrentMoney: 0,
+      selectedCurrentMoney: "a37dff58",
       currentMonies: [],
-      selectedCountry: 0,
-      selectedCountryOfIncorporation: 0,
+      selectedCountry: "a37dff58",
+      selectedCountryOfIncorporation: "a37dff58",
       allCountries: [],
-      selectedRegion: 0,
-      regions: [],
-      selectedAnnualRevenue: 0,
+      selectedHQ: "a37dff58",
+      headquarters: [],
+      selectedAnnualRevenue: "a37dff58",
       annualRevenues: [],
       incorporationCountries: [],
       responseStatus: "",
@@ -122,7 +122,7 @@ class SignupModal extends Component {
     this.getCompanySizes();
     this.getCountries();
     this.getMonies();
-    this.getRegion();
+    //this.getRegion();
   }
   handleFormInput(event) {
     this.setState({ [event.target.id]: event.target.value });
@@ -131,122 +131,136 @@ class SignupModal extends Component {
     this.setState({ setOpen: !this.state.setOpen });
   }
   getCompanySizes() {
-    const url = "Setup/GetCompanySizes";
+    const url ="Setups/GetCompanySizeRange";
     getRequest(url)
       .then((resp) => {
-        let data = resp.data.response_data;
+        let data = resp.data.responseData;
         let defaultText = {
-          id: 0,
+          id: "a37dff58",
           description: "How big is your company?",
           min: 0,
           max: 0,
-          date_created: "26 07 2021 08:44",
         };
         data.unshift(defaultText);
-        this.setState({ companySizes: resp.data.response_data });
-        //console.log(this.state.companySizes)
+        this.setState({ companySizes: resp.data.responseData });
+        
       })
       .catch((err) => {
         console.log(err);
       });
-    const url2 = "Setup/GetCompanySpendSetup";
+    const url2 = "Setups/GetCompanySpendRange";
     getRequest(url2)
       .then((resp) => {
-        let data = resp.data.response_data;
+        let data = resp.data.responseData;
         let defaultText = {
-          id: 0,
+          id: "a37dff58",
           description: "What is your current monthly business expenses?",
           min: 0,
-          max: 0,
-          date_created: "26 07 2021 08:44",
+          max: 0
         };
         data.unshift(defaultText);
-        this.setState({ monthlyExpenses: resp.data.response_data });
+        this.setState({ monthlyExpenses: resp.data.responseData });
       })
       .catch((err) => {
         console.log(err);
       });
   }
   getMonies() {
-    const url = "Setup/GetCompanyRevenueSetup";
+    const url = "Setups/GetCompanyAnnualRevenueRange";
     getRequest(url)
       .then((resp) => {
-        let data = resp.data.response_data;
+        let data = resp.data.responseData;
         let defaultText = {
-          id: 0,
+          id: "a37dff58",
           description:
             "How much do you make in annual revenues from your business?",
           min: 0,
-          max: 0,
-          date_created: "26 07 2021 08:44",
+          max: 0
         };
         data.unshift(defaultText);
-        this.setState({ annualRevenues: resp.data.response_data });
+        this.setState({ annualRevenues: resp.data.responseData });
       })
       .catch((err) => {
         console.log(err);
       });
-    const url2 = "Setup/GetCompanyAccountAmountSetup";
+    const url2 = "Setups/GetCompanyAccountAmountRange";
     getRequest(url2)
       .then((resp) => {
-        let data = resp.data.response_data;
+        let data = resp.data.responseData;
         let defaultText = {
-          id: 0,
+          id: "a37dff58",
           description:
             "How much do you currently have in your business bank account?",
           min: 0,
-          max: 0,
-          date_created: "26 07 2021 08:44",
+          max: 0
         };
         data.unshift(defaultText);
-        this.setState({ currentMonies: resp.data.response_data });
+        this.setState({ currentMonies: resp.data.responseData });
       })
       .catch((err) => {
         console.log(err);
       });
   }
   getCountries() {
-    const url = "Setup/GetCountries";
+    const url = "Countries";
     getRequest(url)
       .then((resp) => {
-        let data = resp.data.response_data;
+        let data = resp.data.responseData.results;
         let defaultText = {
-          id: 0,
-          name: "Country of primary operations for your business?",
-          region: 0,
+          id: "a37dff58",
+        name: "Country of primary operations for your business?",
+        region_type: "NashTreasury.Models.Data.Country",
+        region_type_id: 0
         };
         data.unshift(defaultText);
 
-        this.setState({ allCountries: resp.data.response_data });
+        this.setState({ allCountries: resp.data.responseData.results });
       })
       .catch((err) => {
         console.log(err);
       });
     getRequest(url).then((resp) => {
-      let data = resp.data.response_data;
+      let data = resp.data.responseData.results;
       let defaultText = {
-        id: 0,
+        id: "a37dff58",
         name: "Where is your company incorporated?",
-        region: 0,
+        region_type: "NashTreasury.Models.Data.Country",
+        region_type_id: 0
       };
       data.unshift(defaultText);
-
-      this.setState({ incorporationCountries: resp.data.response_data });
+      
+      this.setState({ incorporationCountries: resp.data.responseData.results,headquarters: resp.data.responseData.results });
     });
+    getRequest(url).then((resp) => {
+      let data2 = resp.data.responseData.results;
+      let defaultText2 = {
+        id: "a37dff58",
+        name: "Where are your headquarters?",
+        region_type: "NashTreasury.Models.Data.Country",
+        region_type_id: 0
+      };
+      data2.unshift(defaultText2);
+      
+      
+      this.setState({headquarters: data2 });
+    });
+    
   }
   getRegion() {
-    const url = `Setup/${this.state.selectedCountry}/GetRegions`;
+    const url = `Countries`;
     getRequest(url)
       .then((resp) => {
-        let data = resp.data.response_data;
+        let data = resp.data.responseData;
         let defaultText = {
-          id: 0,
+          id: "a37dff58",
           name: "Where are your headquarters?",
-          region: 0,
+          region_type: "Town",
+          region_type_id: 0
+          
         };
         data.unshift(defaultText);
 
-        this.setState({ regions: resp.data.response_data });
+        this.setState({ headquarters: resp.data.responseData.results });
       })
       .catch((err) => {
         console.log(err);
@@ -255,7 +269,7 @@ class SignupModal extends Component {
 
   handleSubmit = async () => {
     this.setState({ isLoading: true });
-    const url = "Application";
+    const url = "Applications";
     //console.log(this.props.userData);
     let userData = this.props.userData;
     let payload = {
@@ -270,25 +284,18 @@ class SignupModal extends Component {
       companyAnnualRevenueId: this.state.selectedAnnualRevenue,
       countryOfPrimaryOperationId: this.state.selectedCountry,
       countryOfIncorporationId: this.state.selectedCountryOfIncorporation,
-      countryOfHQId: this.state.selectedRegion,
+      countryOfHQId: this.state.selectedHQ,
     };
-    //console.log(payload);
-    postRequest(url, payload)
-      .then((resp) => {
-        //console.log(resp);
-        this.setState({ isLoading: false });
-        this.props.history.push("/VerifyEmail");
-      })
-      .catch((err) => {
-        console.log(err.response);
-        this.setState({
-          isLoading: false,
-          snackbaropen: true,
-          responseStatus: "failed",
-          snackTitle: "Creation Failed",
-          snackbarmsg: err.response.data.error,
-        });
-      });
+    
+    postRequest(url, payload).then(resp=>{
+      
+      this.setState({ isLoading: false})
+      this.props.history.push("/VerifyEmail")
+    }).catch(err=>{
+    
+      this.setState({isLoading: false, snackbaropen: true, responseStatus: "failed", snackTitle: "Creation Failed", snackbarmsg:err.response.message });
+    });
+    
   };
   snackbarClose = () => {
     this.setState({ snackbaropen: false });
@@ -298,7 +305,7 @@ class SignupModal extends Component {
     const { classes } = this.props;
 
     return (
-      <div>
+      <div> 
         <CustomSnackbar
           hideAlert={this.snackbarClose}
           showSnack={this.state.snackbaropen}
@@ -353,7 +360,7 @@ class SignupModal extends Component {
                       placeholder="Name of your business"
                       type="text"
                       className="flexedInput"
-                      value={this.state.businessName}
+                      value = {this.state.businessName}
                       onChange={this.handleFormInput}
                     />
                     <MuiThemeProvider theme={dropdown}>
@@ -384,9 +391,7 @@ class SignupModal extends Component {
                       input={<Input disableUnderline />}
                       MenuProps={MenuProps}
                       onChange={(e) =>
-                        this.setState({
-                          selectedMonthlyExpense: e.target.value,
-                        })
+                        this.setState({ selectedMonthlyExpense: e.target.value })
                       }
                       style={{
                         marginBottom: "35px",
@@ -484,11 +489,11 @@ class SignupModal extends Component {
                         disableUnderline={true}
                         MenuProps={MenuProps}
                         onChange={(e) =>
-                          this.setState({ selectedRegion: e.target.value })
+                          this.setState({ selectedCountryOfIncorporation: e.target.value })
                         }
-                        value={this.state.selectedRegion}
+                        value={this.state.selectedCountryOfIncorporation}
                       >
-                        {this.state.regions.map((option, key) => (
+                        {this.state.incorporationCountries.map((option, key) => (
                           <MenuItem
                             value={option.id}
                             key={key}
@@ -507,15 +512,15 @@ class SignupModal extends Component {
                       MenuProps={MenuProps}
                       onChange={(e) =>
                         this.setState({
-                          selectedCountryOfIncorporation: e.target.value,
+                          selectedHQ: e.target.value,
                         })
                       }
                       style={{
                         marginBottom: "20px",
                       }}
-                      value={this.state.selectedCountryOfIncorporation}
+                      value={this.state.selectedHQ}
                     >
-                      {this.state.incorporationCountries.map((option, key) => (
+                      {this.state.headquarters.map((option, key) => (
                         <MenuItem
                           value={option.id}
                           key={key}
@@ -541,13 +546,13 @@ class SignupModal extends Component {
                     disabled={
                       this.state.businessName !== "" &&
                       this.state.selectedCompanysize !== 0 &&
-                      this.state.selectedCountry !== 0
+                      this.state.selectedCountry !== 0 
                         ? false
                         : true
                     }
                     onClick={() => this.handleSubmit()}
                   >
-                    {this.state.isLoading ? (
+                     {this.state.isLoading ? (
                       <CircularProgress style={{ color: "white" }} size={20} />
                     ) : (
                       "SUBMIT"

@@ -1,9 +1,8 @@
 import React, { Component } from "react";
 import SignupModal from "./SignupModal";
-import { validateEmail } from "../../Utilities/SharedFunctions";
-//import { withRouter } from "react-router-dom";
+import { validateEmail } from "../Utilities/SharedFunctions";
 
-class SignUp extends Component {
+export default class SignUp extends Component {
   constructor() {
     super();
     this.state = {
@@ -26,8 +25,7 @@ class SignUp extends Component {
   handleFormInput(event) {
     if (event.target.id === "email") {
       this.setState({ validEmail: validateEmail(event.target.value) });
-      // let status =  this.isBlockedEmail(event.target.value);
-      // console.log(status)
+      
     }
     this.setState({ [event.target.id]: event.target.value });
   }
@@ -150,4 +148,3 @@ class SignUp extends Component {
     );
   }
 }
-export default SignUp

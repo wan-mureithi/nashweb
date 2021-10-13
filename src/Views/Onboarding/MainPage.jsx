@@ -154,7 +154,7 @@ class MainPage extends Component {
             businessid={this.state.businessID}
             onboardingData={this.state.onboardingData[0]}
             prevStep={this.prevStep}
-            nextStep={this.nextStep}
+            nextStep={this.nextStep(step)}
           />
         );
      
@@ -176,9 +176,13 @@ class MainPage extends Component {
     }
   }
   // proceed to the next step
-  nextStep = () => {
+  nextStep = (step) => {
     const { activeStep } = this.state;
-    this.setState({ activeStep: activeStep + 1 });
+    if(step){
+      this.setState({ activeStep: step });
+    } else{
+      this.setState({ activeStep: activeStep + 1 });
+    }
 
     
   };
@@ -241,7 +245,7 @@ class MainPage extends Component {
         ) : null }
           
           
-          { this.state.onboardingData === null && this.state.activeStep !== 0  ? 
+          { this.state.lastModified < new Date()  ? 
               <Loader/> :
               <div className={
                 this.state.activeStep === 5 ? "pageContent2" : "pageContent"

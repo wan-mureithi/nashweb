@@ -2,13 +2,10 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import { client_id,client_secret } from '../Credentials';
 //const BASE_URL = 'https://treasuryapi.ngrok.io/NashTreasury/api/';
-// const BASE_URL = 'http://afbbb93503abe455a8a16c8d73e5bf56-166676973.us-east-2.elb.amazonaws.com/api/';
-// const BASE_URL_Identity = 'http://a89e66d52d7394525a919784031d4a1f-1301078880.us-east-2.elb.amazonaws.com/api/';
-// const token_url = 'http://a89e66d52d7394525a919784031d4a1f-1301078880.us-east-2.elb.amazonaws.com/Connect/Token';
+const BASE_URL = 'http://a4d86e94c5566440e80ef4d0b8b7897a-1229585025.us-east-2.elb.amazonaws.com/api/';
+const BASE_URL_Identity = 'http://a4d86e94c5566440e80ef4d0b8b7897a-1229585025.us-east-2.elb.amazonaws.com/api/';
+const token_url = 'http://a4d86e94c5566440e80ef4d0b8b7897a-1229585025.us-east-2.elb.amazonaws.com/Connect/Token';
 
-const BASE_URL = 'http://treasuryapi.ngrok.io/api/';
-const BASE_URL_Identity = 'http://nash-eq-identity.ngrok.io/api/';
-const token_url = 'http://nash-eq-identity.ngrok.io/Connect/Token';
 
 
 
