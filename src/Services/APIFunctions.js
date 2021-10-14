@@ -2,11 +2,9 @@ import axios from 'axios';
 import jwtDecode from 'jwt-decode';
 import { client_id,client_secret } from '../Credentials';
 //const BASE_URL = 'https://treasuryapi.ngrok.io/NashTreasury/api/';
-const BASE_URL = 'http://a4d86e94c5566440e80ef4d0b8b7897a-1204039703.us-east-2.elb.amazonaws.com/api/';
-const BASE_URL_Identity = 'http://a4d86e94c5566440e80ef4d0b8b7897a-1204039703.us-east-2.elb.amazonaws.com/api/';
-const token_url = 'http://a4d86e94c5566440e80ef4d0b8b7897a-1204039703.us-east-2.elb.amazonaws.com/Connect/Token';
-
-
+const BASE_URL = 'https://api.nashglobal.co/api/';
+const BASE_URL_Identity = 'https://api.nashglobal.co/api/';
+const token_url = 'https://api.nashglobal.co/Connect/Token';
 
 
 

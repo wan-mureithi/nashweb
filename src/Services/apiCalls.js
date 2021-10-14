@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { client_secret,client_id } from '../Credentials';
 
-const BASE_URL = 'http://a4d86e94c5566440e80ef4d0b8b7897a-1204039703.us-east-2.elb.amazonaws.com/api/';
-const BASE_URL_Identity = 'http://a4d86e94c5566440e80ef4d0b8b7897a-1204039703.us-east-2.elb.amazonaws.com/api/';
-const token_url = 'http://a4d86e94c5566440e80ef4d0b8b7897a-1204039703.us-east-2.elb.amazonaws.com/Connect/Token';
+const BASE_URL = 'https://api.nashglobal.co/api/';
+const BASE_URL_Identity = 'https://api.nashglobal.co/api/';
+const token_url = 'https://api.nashglobal.co/Connect/Token';
 
 //request interceptor to add the auth token header to requests
 axios.interceptors.request.use(
